@@ -1,0 +1,440 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="56813896-4263-4435-a6e3-cbef190dffa8" name="Changes" comment="feelsstrongman">
+      <change afterPath="$PROJECT_DIR$/.idea/OOP-Raytracing.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/7.4/checksums/checksums.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.4/checksums/checksums.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/7.4/checksums/md5-checksums.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.4/checksums/md5-checksums.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/7.4/checksums/sha1-checksums.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.4/checksums/sha1-checksums.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/7.4/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.4/executionHistory/executionHistory.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/7.4/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.4/executionHistory/executionHistory.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/7.4/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.4/fileHashes/fileHashes.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/7.4/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.4/fileHashes/fileHashes.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/7.4/fileHashes/resourceHashesCache.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.4/fileHashes/resourceHashesCache.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/file-system.probe" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/file-system.probe" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/Main.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/Simulation/Simulation$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/Simulation/Simulation$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/Simulation/Simulation$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/Simulation/Simulation$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/Simulation/Simulation.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/Simulation/Simulation.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/Simulation/Stats.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/Simulation/Stats.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/World/WorldHandler$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/World/WorldHandler$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/World/WorldHandler.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/World/WorldHandler.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/objects/Animal.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/objects/Animal.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/previous-compilation-data.bin" beforeDir="false" afterPath="$PROJECT_DIR$/build/tmp/compileJava/previous-compilation-data.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Menu/Menu.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Menu/Panel.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Objects/Animal.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Objects/Grass.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Objects/Vector2d.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Save/Loader.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Save/Saver.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Simulation/AnimalInfo.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Simulation/Simulation.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Simulation/Stats.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/World/AnimalCompare.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/World/Settings.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/World/WorldHandler.java" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ExternalProjectsData">
+    <projectState path="$PROJECT_DIR$">
+      <ProjectState />
+    </projectState>
+  </component>
+  <component name="ExternalProjectsManager">
+    <system id="GRADLE">
+      <state>
+        <task path="$PROJECT_DIR$">
+          <activation />
+        </task>
+        <projects_view>
+          <tree_state>
+            <expand>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="oolab" type="f1a62948:ProjectNode" />
+              </path>
+            </expand>
+            <select />
+          </tree_state>
+        </projects_view>
+      </state>
+    </system>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="JUnit5 Test Class" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="PUSH_TAGS">
+      <GitPushTagMode>
+        <option name="argument" value="--tags" />
+        <option name="title" value="All" />
+      </GitPushTagMode>
+    </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.openjfx/javafx-graphics/17/c5d8a26d28bb271ac5fe667e27814829d73a6124/javafx-graphics-17-sources.jar!/com/sun/glass/ui/Application.java" root0="SKIP_INSPECTION" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectId" id="2FtgVmzSEuzz3sEUEFJfQEMeTga" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Downloaded.Files.Path.Enabled": "true",
+    "Repository.Attach.Annotations": "false",
+    "Repository.Attach.JavaDocs": "false",
+    "Repository.Attach.Sources": "false",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit5",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5": "",
+    "last_opened_file_path": "B:/AGH 3 SEM/OOP-Raytracing",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Libraries",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.4597701",
+    "settings.editor.selected.configurable": "project.propVCSSupport.DirectoryMappings"
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="Save" />
+    </key>
+    <key name="CreateTestDialog.Recents.Supers">
+      <recent name="" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="B:\AGH 3 SEM\OOP-Project\configsaves" />
+    </key>
+    <key name="CreateTestDialog.RecentsKey">
+      <recent name="agh.ics.oop" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Application.Main">
+    <configuration name="App" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="agh.ics.oop.gui.App" />
+      <module name="oolab.main" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="agh.ics.oop.gui.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Main" />
+      <module name="oolab.main" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Main" />
+      <module name="oolab.main" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="WorldTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":test" />
+            <option value="--tests" />
+            <option value="&quot;agh.ics.oop.WorldTest&quot;" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <method v="2" />
+    </configuration>
+    <configuration name="WorldTest.Animal_Test_Rotation" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":test" />
+            <option value="--tests" />
+            <option value="&quot;agh.ics.oop.WorldTest.Animal_Test_Rotation&quot;" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <method v="2" />
+    </configuration>
+    <list>
+      <item itemvalue="Application.Main" />
+      <item itemvalue="Application.App" />
+      <item itemvalue="Gradle.WorldTest.Animal_Test_Rotation" />
+      <item itemvalue="Gradle.WorldTest" />
+    </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.Main" />
+        <item itemvalue="Application.Main" />
+        <item itemvalue="Gradle.WorldTest" />
+        <item itemvalue="Gradle.WorldTest.Animal_Test_Rotation" />
+        <item itemvalue="Application.App" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="56813896-4263-4435-a6e3-cbef190dffa8" name="Changes" comment="" />
+      <created>1665316822566</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1665316822566</updated>
+      <workItem from="1672449851852" duration="12033000" />
+      <workItem from="1672490852079" duration="2612000" />
+      <workItem from="1672520033370" duration="23687000" />
+      <workItem from="1672581929985" duration="2471000" />
+    </task>
+    <task id="LOCAL-00001" summary="init">
+      <created>1665317049771</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1665317049771</updated>
+    </task>
+    <task id="LOCAL-00002" summary="update">
+      <created>1665321530322</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1665321530322</updated>
+    </task>
+    <task id="LOCAL-00003" summary="update">
+      <created>1665321592352</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1665321592352</updated>
+    </task>
+    <task id="LOCAL-00004" summary="lab2">
+      <created>1665761052361</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1665761052361</updated>
+    </task>
+    <task id="LOCAL-00005" summary="lab2">
+      <created>1665761099084</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1665761099084</updated>
+    </task>
+    <task id="LOCAL-00006" summary="lab3">
+      <created>1666031971519</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1666031971519</updated>
+    </task>
+    <task id="LOCAL-00007" summary="lab4">
+      <created>1667045257727</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1667045257727</updated>
+    </task>
+    <task id="LOCAL-00008" summary="lab5">
+      <created>1667774037099</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1667774037099</updated>
+    </task>
+    <task id="LOCAL-00009" summary="lab8">
+      <created>1669590461365</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1669590461365</updated>
+    </task>
+    <task id="LOCAL-00010" summary="lab8 test update">
+      <created>1669590896852</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1669590896852</updated>
+    </task>
+    <task id="LOCAL-00011" summary="init">
+      <created>1672254758236</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1672254758236</updated>
+    </task>
+    <task id="LOCAL-00012" summary="init">
+      <created>1672255507337</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1672255507337</updated>
+    </task>
+    <task id="LOCAL-00013" summary="init">
+      <created>1672255802231</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1672255802231</updated>
+    </task>
+    <task id="LOCAL-00014" summary="update">
+      <created>1672260568201</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1672260568201</updated>
+    </task>
+    <task id="LOCAL-00015" summary="update">
+      <created>1672268257413</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1672268257413</updated>
+    </task>
+    <task id="LOCAL-00016" summary="update">
+      <created>1672275546418</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1672275546418</updated>
+    </task>
+    <task id="LOCAL-00017" summary="update">
+      <created>1672279616538</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1672279616538</updated>
+    </task>
+    <task id="LOCAL-00018" summary="update">
+      <created>1672336073901</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1672336073901</updated>
+    </task>
+    <task id="LOCAL-00019" summary="update">
+      <created>1672341533689</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1672341533689</updated>
+    </task>
+    <task id="LOCAL-00020" summary="update">
+      <created>1672342614216</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1672342614216</updated>
+    </task>
+    <task id="LOCAL-00021" summary="update">
+      <created>1672350292482</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1672350292482</updated>
+    </task>
+    <task id="LOCAL-00022" summary="saver / loader">
+      <created>1672362551348</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1672362551348</updated>
+    </task>
+    <task id="LOCAL-00023" summary="csv support">
+      <created>1672367204466</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1672367204466</updated>
+    </task>
+    <task id="LOCAL-00024" summary="feelsstrongman">
+      <created>1672504853388</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1672504853388</updated>
+    </task>
+    <option name="localTasksCounter" value="25" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="lab2" />
+    <MESSAGE value="lab3" />
+    <MESSAGE value="lab4" />
+    <MESSAGE value="lab5" />
+    <MESSAGE value="lab8" />
+    <MESSAGE value="lab8 test update" />
+    <MESSAGE value="init" />
+    <MESSAGE value="update" />
+    <MESSAGE value="saver / loader" />
+    <MESSAGE value="csv support" />
+    <MESSAGE value="feelsstrongman" />
+    <option name="LAST_COMMIT_MESSAGE" value="feelsstrongman" />
+  </component>
+</project>
