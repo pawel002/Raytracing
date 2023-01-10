@@ -56,14 +56,20 @@ public class Vec3d {
     }
 
     public static double length(Vec3d v) {
-        return (double) Math.sqrt(v.x * v.x + v.y * v.y + v.z * v.z);
+        return Math.sqrt(v.x * v.x + v.y * v.y + v.z * v.z);
+    }
+
+    public static double lengthSquared(Vec3d v) {
+        return v.x * v.x + v.y * v.y + v.z * v.z;
     }
 
     public static Vec3d normalize(Vec3d v) {
         return new Vec3d(v.x / length(v), v.y / length(v), v.z / length(v));
     }
 
-
+    public String toString(){
+        return String.format("{%.2f, %.2f, %.2f}", x, y, z);
+    }
 
 
 }

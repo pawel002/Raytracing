@@ -6,7 +6,7 @@ public class Main {
 
         public static void main(String[] args) {
 
-            Engine engine = new Engine(1280, 720, 1, true);
+            Engine engine = new Engine(600, 400, 1, true);
             engine.start();
         }
 }
