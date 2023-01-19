@@ -65,7 +65,7 @@ public class Viewport extends JPanel {
         this.settings = settings;
 
         // set scene constants
-        resolution = 2;
+        resolution = 1;
         mouseSens = 0.5;
         camSpeed = 3.0;
         maxDepth = 2;
@@ -82,6 +82,8 @@ public class Viewport extends JPanel {
         // setup SCENE
         scene.addSolid(new Sphere(new Vec3d(-5,-5,5), 2, new Vec3d(0.8,0.2,0.2), 0.9, 0.2));
         scene.addSolid(new Sphere(new Vec3d(-5,-1,5), 2, new Vec3d(0.2,0.2,0.2), 0.9, 0));
+        scene.addSolid(new Sphere(new Vec3d(-5,3,5), 2, new Vec3d(0.2,0.2,0.2), 1, 0));
+        scene.addSolid(new Sphere(new Vec3d(-5,7,5), 2, new Vec3d(0.2,0.8,0.2), 0.9, 0.3));
 //        scene.addSolid(new Plane(new Vec3d(0,0,-1), new Vec3d(0, 0, 1), new Vec3d(0.14,0.81,0.8), 0.1, 0.5));
 
         BufferedImage cursorImg = new BufferedImage(16, 16, BufferedImage.TYPE_INT_ARGB);

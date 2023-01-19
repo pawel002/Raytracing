@@ -12,7 +12,7 @@ public class App {
 
     public App(int width_, int height_){
 
-        frame = new JFrame("Ray Tracing");
+        frame = new JFrame("RayTracing");
         frame.setSize(width_, height_);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setLocationRelativeTo(null);
