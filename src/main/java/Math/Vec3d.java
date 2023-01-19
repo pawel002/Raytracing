@@ -1,5 +1,9 @@
 package Math;
 
+import static java.lang.Math.cos;
+import static java.lang.Math.sin;
+import static java.lang.Math.toRadians;
+
 public class Vec3d {
     public double x;
     public double y;
@@ -43,6 +47,25 @@ public class Vec3d {
         return new Vec3d(a.y * b.z - b.y * a.z, a.z * b.x - b.z * a.x, a.x * b.y - b.x * a.y);
     }
 
+    public void translate(Vec3d v){
+        x += v.x;
+        y += v.y;
+        z += v.z;
+    }
+
+    public Vec3d rotate(double yaw, double pitch){
+        double yd = toRadians(yaw);
+        double pd = toRadians(pitch);
+
+        double newY = y*cos(pd) - z * sin(pd);
+        double newZ = y*sin(pd) + z * cos(pd);
+
+        double newX = x * cos(yd) + newZ * sin(yd);
+        newZ = -x*sin(yd) + newZ * cos(yd);
+
+        return new Vec3d(newX, newY, newZ);
+    }
+
     public static Vec3d scale(Vec3d a, double b){
         return new Vec3d(a.x * b, a.y * b, a.z * b);
     }
@@ -65,6 +88,14 @@ public class Vec3d {
 
     public static Vec3d normalize(Vec3d v) {
         return new Vec3d(v.x / length(v), v.y / length(v), v.z / length(v));
+    }
+
+    public static Vec3d fromInt(int rgb) {
+        int b = (rgb)&0xFF;
+        int g = (rgb>>8)&0xFF;
+        int r = (rgb>>16)&0xFF;
+
+        return new Vec3d((double) r /255.0, (double)g /255.0, (double)b /255.0);
     }
 
     public String toString(){

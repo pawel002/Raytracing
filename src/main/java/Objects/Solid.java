@@ -7,14 +7,14 @@ public abstract class Solid {
 
     protected Vec3d position;
     protected Vec3d color;
-    protected float reflectivity;
-    protected float emission;
+    protected double reflectivity;
+    protected double roughness;
 
-    public Solid(Vec3d position_, Vec3d color_, float reflectivity_, float emission_) {
+    public Solid(Vec3d position_, Vec3d color_, double reflectivity_, double roughness_) {
         position = position_;
         color = color_;
         reflectivity = reflectivity_;
-        emission = emission_;
+        roughness = roughness_;
     }
 
     public abstract double calculateIntersection(Ray ray);
@@ -33,11 +33,11 @@ public abstract class Solid {
         return getColor();
     }
 
-    public float getReflectivity() {
+    public double getReflectivity() {
         return reflectivity;
     }
 
-    public float getEmission() {
-        return emission;
+    public double getRoughness() {
+        return roughness;
     }
 }

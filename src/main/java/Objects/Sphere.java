@@ -7,10 +7,10 @@ import static Math.Vec3d.*;
 
 public class Sphere extends Solid{
 
-    private float radius;
+    private final double radius;
 
-    public Sphere(Vec3d position, float radius_, Vec3d color, float reflectivity, float emission) {
-        super(position, color, reflectivity, emission);
+    public Sphere(Vec3d position, double radius_, Vec3d color, double reflectivity, double roughness) {
+        super(position, color, reflectivity, roughness);
         radius = radius_;
     }
 

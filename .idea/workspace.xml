@@ -4,12 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="56813896-4263-4435-a6e3-cbef190dffa8" name="Changes" comment="feelsstrongman">
-      <change afterPath="$PROJECT_DIR$/src/main/java/Math/Ray.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Objects/Camera.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Objects/Plane.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Objects/Solid.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Objects/Sphere.java" afterDir="false" />
+    <list default="true" id="56813896-4263-4435-a6e3-cbef190dffa8" name="Changes" comment="init">
+      <change afterPath="$PROJECT_DIR$/src/main/java/Engine/App.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Engine/Viewport.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Math/Utils.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Objects/Torus.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Raytracer/Pixel.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Raytracer/Scene.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Raytracer/Skybox.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/Sky.jpg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/7.4/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.4/executionHistory/executionHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/7.4/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.4/executionHistory/executionHistory.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/7.4/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.4/fileHashes/fileHashes.bin" afterDir="false" />
@@ -18,17 +21,32 @@
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/file-system.probe" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/file-system.probe" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/Engine/Display.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/Engine/Display.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/Engine/Engine.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/Engine/Engine.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/Engine/Raytracer.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/Engine/Engine$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/Engine/Engine.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/build/classes/java/main/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/Main.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/classes/java/main/Math/Vec3d.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/Math/Vec3d.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/Objects/Camera.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/Objects/Plane.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/Objects/Plane.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/Objects/Solid.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/Objects/Solid.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/Objects/Sphere.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/Objects/Sphere.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/Raytracer/Raytracer.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/animal.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/grass.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/newAnimal.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/resources/main/newGrass.png" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/previous-compilation-data.bin" beforeDir="false" afterPath="$PROJECT_DIR$/build/tmp/compileJava/previous-compilation-data.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Engine/Display.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Engine/Display.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Engine/Engine.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Engine/Engine.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Engine/Raytracer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Raytracer/Raytracer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Engine/Engine.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Math/Vec3d.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Math/Vec3d.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Objects/Camera.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Raytracer/Camera.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Objects/Plane.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Objects/Plane.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Objects/Solid.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Objects/Solid.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Objects/Sphere.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Objects/Sphere.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Raytracer/Raytracer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Raytracer/Renderer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/animal.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/grass.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/newAnimal.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/newGrass.png" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -93,6 +111,7 @@
   </component>
   <component name="PropertiesComponent">{
   &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
     &quot;Downloaded.Files.Path.Enabled&quot;: &quot;true&quot;,
     &quot;Repository.Attach.Annotations&quot;: &quot;false&quot;,
     &quot;Repository.Attach.JavaDocs&quot;: &quot;false&quot;,
@@ -103,7 +122,7 @@
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
     &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary&quot;: &quot;JUnit5&quot;,
     &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5&quot;: &quot;&quot;,
-    &quot;last_opened_file_path&quot;: &quot;B:/AGH 3 SEM/OOP-Raytracing&quot;,
+    &quot;last_opened_file_path&quot;: &quot;B:/AGH 3 SEM/OOP-Project&quot;,
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
     &quot;project.structure.last.edited&quot;: &quot;Libraries&quot;,
     &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
@@ -396,7 +415,14 @@
       <option name="project" value="LOCAL" />
       <updated>1672504853388</updated>
     </task>
-    <option name="localTasksCounter" value="25" />
+    <task id="LOCAL-00025" summary="init">
+      <created>1673391048842</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1673391048842</updated>
+    </task>
+    <option name="localTasksCounter" value="26" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -414,17 +440,18 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="lab2" />
     <MESSAGE value="lab3" />
     <MESSAGE value="lab4" />
     <MESSAGE value="lab5" />
     <MESSAGE value="lab8" />
     <MESSAGE value="lab8 test update" />
-    <MESSAGE value="init" />
     <MESSAGE value="update" />
     <MESSAGE value="saver / loader" />
     <MESSAGE value="csv support" />
     <MESSAGE value="feelsstrongman" />
-    <option name="LAST_COMMIT_MESSAGE" value="feelsstrongman" />
+    <MESSAGE value="init" />
+    <option name="LAST_COMMIT_MESSAGE" value="init" />
   </component>
 </project>

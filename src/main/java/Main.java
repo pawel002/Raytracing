@@ -1,12 +1,12 @@
-import Engine.Engine;
-import Math.Vec3d.*;
-import Engine.Engine.*;
+import Engine.App;
+
+import static java.lang.System.out;
 
 public class Main {
 
         public static void main(String[] args) {
 
-            Engine engine = new Engine(600, 400, 1, true);
-            engine.start();
+            App app = new App(1280, 720);
+
         }
 }
