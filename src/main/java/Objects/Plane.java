@@ -11,15 +11,15 @@ public class Plane extends Solid{
 
     public Plane(Vec3d position, Vec3d normal_, Vec3d color, double reflectivity, double roughness_) {
         super(position, color, reflectivity, roughness_);
-        normal = inverse(normal_);
+        normal = normal_;
     }
 
     @Override
     public double calculateIntersection(Ray ray) {
-        double a = dot(normal, ray.direction);
+        double a = dot(inverse(normal), ray.direction);
         if (a > 1e-2) {
             Vec3d p = subtract(position, ray.origin);
-            return dot(p, normal) / a;
+            return dot(p, inverse(normal)) / a;
         }
         return -1;
     }

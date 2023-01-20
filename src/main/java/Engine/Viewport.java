@@ -10,6 +10,7 @@ import java.awt.image.BufferedImage;
 import java.lang.*;
 import java.util.Arrays;
 
+import Light.Light;
 import Math.Vec3d;
 import Objects.Plane;
 import Objects.Sphere;
@@ -17,6 +18,7 @@ import Raytracer.Camera;
 import Raytracer.Scene;
 import Raytracer.Skybox;
 import Raytracer.Renderer.*;
+import Light.*;
 import static Raytracer.Renderer.*;
 
 import static Math.Vec3d.lengthSquared;
@@ -44,6 +46,7 @@ public class Viewport extends JPanel {
 
     private Scene scene;
 
+    private boolean progressiveRendering;
     private boolean cameraMoved;
     private Camera camera;
     private double mouseSens;
@@ -65,14 +68,15 @@ public class Viewport extends JPanel {
         this.settings = settings;
 
         // set scene constants
-        resolution = 1;
+        resolution = 4;
         mouseSens = 0.5;
-        camSpeed = 3.0;
+        camSpeed = 5.0;
         maxDepth = 2;
         cursorCaptured = false;
         cameraMotion = new Vec3d(0,0,0);
         timePerFrame = -1;
         cameraMoved = false;
+        progressiveRendering = false;
 
         // get scene elements
         scene = new Scene();
@@ -80,11 +84,14 @@ public class Viewport extends JPanel {
         skybox = scene.getSkybox();
 
         // setup SCENE
-        scene.addSolid(new Sphere(new Vec3d(-5,-5,5), 2, new Vec3d(0.8,0.2,0.2), 0.9, 0.2));
-        scene.addSolid(new Sphere(new Vec3d(-5,-1,5), 2, new Vec3d(0.2,0.2,0.2), 0.9, 0));
-        scene.addSolid(new Sphere(new Vec3d(-5,3,5), 2, new Vec3d(0.2,0.2,0.2), 1, 0));
-        scene.addSolid(new Sphere(new Vec3d(-5,7,5), 2, new Vec3d(0.2,0.8,0.2), 0.9, 0.3));
-//        scene.addSolid(new Plane(new Vec3d(0,0,-1), new Vec3d(0, 0, 1), new Vec3d(0.14,0.81,0.8), 0.1, 0.5));
+        scene.addSolid(new Sphere(new Vec3d(-5,-5,5), 2, new Vec3d(0.8,0.5,0.5), 0.1, 0.2));
+        scene.addSolid(new Sphere(new Vec3d(-2,-1,5), 2, new Vec3d(0.5,0.8,0.5), 0.2, 0));
+        scene.addSolid(new Sphere(new Vec3d(1,3,5), 2, new Vec3d(0.5,0.5,0.8), 0.3, 0));
+        scene.addSolid(new Sphere(new Vec3d(4,7,5), 2, new Vec3d(0.8,0.8,0.8), 0.4, 0));
+
+        scene.addSolid(new Plane(new Vec3d(0,0,3), new Vec3d(0, 0, 1), new Vec3d(0.3,0.3,0.3), 0.2, 0.2));
+
+        scene.addLight(new PointLight(new Vec3d(0, 20, 10), new Vec3d(0.8,0.8,0.6), 2));
 
         BufferedImage cursorImg = new BufferedImage(16, 16, BufferedImage.TYPE_INT_ARGB);
         blankCursor = Toolkit.getDefaultToolkit().createCustomCursor(cursorImg, new Point(0,0), "blank");
@@ -116,7 +123,7 @@ public class Viewport extends JPanel {
 
             renderScene(tempBuffer.getGraphics(), scene, getWidth(), getHeight(), maxDepth, resolution);
 
-            if ((cameraMotion.x == 0 && cameraMotion.y == 0 && cameraMotion.z == 0 && !cameraMoved) && !resetRender) {
+            if ((cameraMotion.x == 0 && cameraMotion.y == 0 && cameraMotion.z == 0 && !cameraMoved) && !resetRender && progressiveRendering) {
 
                 averagedScenes ++;
                 averageBuffers(currBuffer, tempBuffer, averageBuffer, getWidth() * getHeight(), averagedScenes);
@@ -169,6 +176,8 @@ public class Viewport extends JPanel {
                 else if (e.getKeyCode() == KeyEvent.VK_SPACE) cameraMotion.z = 1;
                 else if (e.getKeyCode() == KeyEvent.VK_SHIFT) cameraMotion.z = -1;
                 else if (e.getKeyCode() == KeyEvent.VK_R) resetRender = true;
+                else if (e.getKeyCode() == KeyEvent.VK_T) progressiveRendering = true;
+                else if (e.getKeyCode() == KeyEvent.VK_Y) progressiveRendering = false;
             }
 
             @Override

@@ -5,26 +5,31 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="56813896-4263-4435-a6e3-cbef190dffa8" name="Changes" comment="update">
-      <change afterPath="$PROJECT_DIR$/src/main/java/Light/DirectionalLight.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Light/Light.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Light/PointLight.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Light/SphereLight.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Math/HitInfo.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Math/Color3d.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Objects/Triangle.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/7.4/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.4/executionHistory/executionHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/7.4/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.4/executionHistory/executionHistory.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/7.4/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.4/fileHashes/fileHashes.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/7.4/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.4/fileHashes/fileHashes.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/7.4/fileHashes/resourceHashesCache.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.4/fileHashes/resourceHashesCache.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/file-system.probe" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/file-system.probe" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/Engine/App.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/Engine/App.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/classes/java/main/Engine/Viewport$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/Engine/Viewport$1.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/classes/java/main/Engine/Viewport$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/Engine/Viewport$2.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/classes/java/main/Engine/Viewport$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/Engine/Viewport$3.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/classes/java/main/Engine/Viewport.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/Engine/Viewport.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/Math/Vec3d.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/Math/Vec3d.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/Objects/Plane.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/Objects/Plane.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/Raytracer/Scene.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/Raytracer/Scene.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/previous-compilation-data.bin" beforeDir="false" afterPath="$PROJECT_DIR$/build/tmp/compileJava/previous-compilation-data.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Engine/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Engine/App.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Engine/Viewport.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Engine/Viewport.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Light/DirectionalLight.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Light/DirectionalLight.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Light/Light.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Light/Light.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Light/PointLight.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Light/PointLight.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Light/SphereLight.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Light/SphereLight.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Math/Vec3d.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Math/Vec3d.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Objects/Plane.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Objects/Plane.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Raytracer/Scene.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Raytracer/Scene.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -408,7 +413,14 @@
       <option name="project" value="LOCAL" />
       <updated>1674153265451</updated>
     </task>
-    <option name="localTasksCounter" value="27" />
+    <task id="LOCAL-00027" summary="update">
+      <created>1674159709562</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1674159709562</updated>
+    </task>
+    <option name="localTasksCounter" value="28" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

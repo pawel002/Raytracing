@@ -16,7 +16,7 @@ public class Vec3d {
     }
 
     public Vec3d(double f){
-        x = y = z =f;
+        x = y = z = f;
     }
 
     public static  Vec3d inverse(Vec3d v){
@@ -70,6 +70,10 @@ public class Vec3d {
         return new Vec3d(a.x * b, a.y * b, a.z * b);
     }
 
+    public static Vec3d scale(Vec3d a, Vec3d b){
+        return new Vec3d(a.x * b.x, a.y * b.y, a.z * b.z);
+    }
+
     public static Vec3d divide(Vec3d a, Vec3d b) {
         return new Vec3d(a.x / b.x, a.y / b.y, a.z / b.z);
     }
@@ -87,7 +91,8 @@ public class Vec3d {
     }
 
     public static Vec3d normalize(Vec3d v) {
-        return new Vec3d(v.x / length(v), v.y / length(v), v.z / length(v));
+        double inv = 1 / length(v);
+        return new Vec3d(v.x * inv, v.y * inv, v.z * inv);
     }
 
     public static Vec3d fromInt(int rgb) {

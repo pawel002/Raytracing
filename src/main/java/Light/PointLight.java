@@ -4,10 +4,10 @@ import Math.*;
 
 public class PointLight extends Light {
 
-    Vec3d position;
+    public Vec3d position;
 
-    public PointLight(Vec3d position, Vec3d color) {
-        super(color);
+    public PointLight(Vec3d position, Vec3d color, double intesity) {
+        super(color, intesity);
         this.position = position;
     }
 
