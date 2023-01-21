@@ -12,8 +12,10 @@ import java.util.Arrays;
 
 import Light.Light;
 import Math.Vec3d;
+import Objects.Parallelepiped;
 import Objects.Plane;
 import Objects.Sphere;
+import Objects.Triangle;
 import Raytracer.Camera;
 import Raytracer.Scene;
 import Raytracer.Skybox;
@@ -85,11 +87,13 @@ public class Viewport extends JPanel {
 
         // setup SCENE
         scene.addSolid(new Sphere(new Vec3d(-5,-5,5), 2, new Vec3d(0.8,0.5,0.5), 0.1, 0.2));
-        scene.addSolid(new Sphere(new Vec3d(-2,-1,5), 2, new Vec3d(0.5,0.8,0.5), 0.2, 0));
-        scene.addSolid(new Sphere(new Vec3d(1,3,5), 2, new Vec3d(0.5,0.5,0.8), 0.3, 0));
-        scene.addSolid(new Sphere(new Vec3d(4,7,5), 2, new Vec3d(0.8,0.8,0.8), 0.4, 0));
+        scene.addSolid(new Sphere(new Vec3d(-5,-1,5), 2, new Vec3d(0.5,0.8,0.5), 0.2, 0));
+        scene.addSolid(new Sphere(new Vec3d(-5,3,5), 2, new Vec3d(0.5,0.5,0.8), 0.3, 0));
+        scene.addSolid(new Sphere(new Vec3d(-5,7,5), 2, new Vec3d(0.8,0.8,0.8), 0.4, 0));
 
-        scene.addSolid(new Plane(new Vec3d(0,0,3), new Vec3d(0, 0, 1), new Vec3d(0.3,0.3,0.3), 0.2, 0.2));
+        scene.addSolid(new Plane(new Vec3d(0,0,3), new Vec3d(0, 0, 1), new Vec3d(0.3,0.3,0.3), 0.01, 0));
+
+        scene.addSolid(new Parallelepiped(new Vec3d(0, 0, 3), new Vec3d(0,0,3), new Vec3d(0,3,1), new Vec3d(3,0,1), new Vec3d(0.5), 1, 0));
 
         scene.addLight(new PointLight(new Vec3d(0, 20, 10), new Vec3d(0.8,0.8,0.6), 2));
 

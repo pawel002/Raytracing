@@ -27,9 +27,12 @@ public class Scene {
             return new Pixel(skybox.getColor(incomingRay.direction), -1);
         }
 
+        // add info about normal to HITINFO - DONE
         HitInfo hitInfo = getHitInfo(incomingRay);
-        Solid solid = hitInfo.solid;
         double t = hitInfo.t;
+        Solid solid = hitInfo.solid;
+        Vec3d normal = hitInfo.normal;
+
 
         if (solid != null){
 
@@ -56,7 +59,7 @@ public class Scene {
         double t = hitInfo.t;
         Solid solid = hitInfo.solid;
         Vec3d hitPoint = incomingRay.at(t);
-
+        Vec3d normal = hitInfo.normal;
         Vec3d color = new Vec3d(0);
 
         // works only for points light sources
@@ -75,11 +78,11 @@ public class Scene {
             double lightIntensity =  lightSource.intensity / distanceSquared;
 
             // Lambertian shading (lambertian coef for material??)
-            double lambertianIntensity = lightIntensity * max(0, dot(lightVec, solid.getNormalAt(hitPoint)));
+            double lambertianIntensity = lightIntensity * max(0, dot(lightVec, normal));
 
             // Blinn - Phong (blinn-phong coef material??)
             Vec3d bisector = normalize(add(lightVec, inverse(normalize(incomingRay.direction))));
-            double blinnPhongIntensity = 0.2 * lightIntensity * pow(max(0, dot(bisector, solid.getNormalAt(hitPoint))), 10);
+            double blinnPhongIntensity = 0.2 * lightIntensity * pow(max(0, dot(bisector, normal)), 10);
 
             Vec3d addColor = scale(scale(lightSource.color, solid.getColor()), lambertianIntensity + blinnPhongIntensity);
             color = add(color, addColor);
@@ -95,23 +98,23 @@ public class Scene {
 
         double t = hitInfo.t;;
         Solid solid = hitInfo.solid;
+        Vec3d normal = hitInfo.normal;
 
         Vec3d dir = normalize(incomingRay.direction);
-        Vec3d normal = solid.getNormalAt(incomingRay.at(t));
         Ray newRay = new Ray(incomingRay.at(t), add(subtract(dir, scale(normal, 2 * dot(dir, normal))), scale(randomInSphere(), solid.getRoughness())));
 
         return getRayColor(newRay, depth - 1).getColor();
     }
 
     private HitInfo getHitInfo(Ray ray){
-        HitInfo hitInfo = new HitInfo(99999, null);
+        HitInfo hitInfo = new HitInfo(99999, null, null);
 
         for (Solid solid : solids) {
 
-            double temp = solid.calculateIntersection(ray);
+            HitInfo tempHitInfo = solid.calculateIntersection(ray);
 
-            if (temp >= 0.001 && temp <= hitInfo.t) {
-                hitInfo = new HitInfo(temp, solid);
+            if (tempHitInfo.t >= 0.001 && tempHitInfo.t <= hitInfo.t) {
+                hitInfo = tempHitInfo;
             }
         }
 

@@ -2,6 +2,7 @@ package Objects;
 
 import Math.Vec3d;
 import Math.Ray;
+import Math.*;
 
 import static Math.Vec3d.*;
 
@@ -15,13 +16,13 @@ public class Plane extends Solid{
     }
 
     @Override
-    public double calculateIntersection(Ray ray) {
+    public HitInfo calculateIntersection(Ray ray) {
         double a = dot(inverse(normal), ray.direction);
         if (a > 1e-2) {
             Vec3d p = subtract(position, ray.origin);
-            return dot(p, inverse(normal)) / a;
+            return new HitInfo(dot(p, inverse(normal)) / a, this, normal);
         }
-        return -1;
+        return new HitInfo(-1, null, null);
     }
 
     @Override

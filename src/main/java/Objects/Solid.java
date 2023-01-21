@@ -2,6 +2,7 @@ package Objects;
 
 import Math.Vec3d;
 import Math.Ray;
+import Math.*;
 
 public abstract class Solid {
 
@@ -17,7 +18,7 @@ public abstract class Solid {
         roughness = roughness_;
     }
 
-    public abstract double calculateIntersection(Ray ray);
+    public abstract HitInfo calculateIntersection(Ray ray);
 
     public abstract Vec3d getNormalAt(Vec3d point);
 

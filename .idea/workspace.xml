@@ -5,8 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="56813896-4263-4435-a6e3-cbef190dffa8" name="Changes" comment="update">
-      <change afterPath="$PROJECT_DIR$/src/main/java/Math/Color3d.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Objects/Triangle.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/Objects/Parallelepiped.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/7.4/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.4/executionHistory/executionHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/7.4/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.4/executionHistory/executionHistory.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/7.4/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.4/fileHashes/fileHashes.bin" afterDir="false" />
@@ -19,17 +18,20 @@
       <change beforePath="$PROJECT_DIR$/build/classes/java/main/Engine/Viewport$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/Engine/Viewport$2.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/classes/java/main/Engine/Viewport$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/Engine/Viewport$3.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/classes/java/main/Engine/Viewport.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/Engine/Viewport.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/Math/Vec3d.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/Math/Vec3d.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/Math/Color3.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/Math/HitInfo.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/Math/HitInfo.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/classes/java/main/Objects/Plane.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/Objects/Plane.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/classes/java/main/Raytracer/Scene.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/Raytracer/Scene.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/previous-compilation-data.bin" beforeDir="false" afterPath="$PROJECT_DIR$/build/tmp/compileJava/previous-compilation-data.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Engine/Display.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Engine/Viewport.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Engine/Viewport.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Light/DirectionalLight.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Light/DirectionalLight.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Light/Light.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Light/Light.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Light/PointLight.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Light/PointLight.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Light/SphereLight.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Light/SphereLight.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Math/Vec3d.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Math/Vec3d.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Math/HitInfo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Math/HitInfo.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Objects/Plane.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Objects/Plane.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Objects/Solid.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Objects/Solid.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Objects/Sphere.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Objects/Sphere.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Objects/Torus.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Objects/Torus.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Objects/Triangle.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Objects/Triangle.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Raytracer/Scene.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Raytracer/Scene.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -420,7 +422,14 @@
       <option name="project" value="LOCAL" />
       <updated>1674159709562</updated>
     </task>
-    <option name="localTasksCounter" value="28" />
+    <task id="LOCAL-00028" summary="update">
+      <created>1674237055041</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1674237055041</updated>
+    </task>
+    <option name="localTasksCounter" value="29" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

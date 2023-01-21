@@ -17,7 +17,7 @@ public class Torus extends Solid{
     }
 
     @Override
-    public double calculateIntersection(Ray ray) {
+    public HitInfo calculateIntersection(Ray ray) {
         double x = dot(ray.direction, ray.direction);
         double y = dot(ray.direction, ray.origin);
 
@@ -42,7 +42,7 @@ public class Torus extends Solid{
 
         }
 
-        return 1;
+        return new HitInfo(-1, null, null);
 
     }
 
