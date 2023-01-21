@@ -12,7 +12,6 @@ import Math.*;
 import static Math.Vec3d.*;
 import static Math.Utils.*;
 import static java.lang.Math.*;
-import static java.lang.System.out;
 
 public class Scene {
 

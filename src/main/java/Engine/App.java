@@ -17,11 +17,18 @@ public class App {
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setLocationRelativeTo(null);
         frame.setResizable(false);
-        
+
         JDialog settings = new JDialog(frame, "Settings");
 
         Viewport viewport = new Viewport(frame, settings);
         frame.add(viewport);
+
+        SettingsMenu settingsMenu = new SettingsMenu(viewport);
+
+        settings.setDefaultCloseOperation(JDialog.HIDE_ON_CLOSE);
+        settings.setSize(350, 600);
+        settings.add(settingsMenu);
+        settings.setVisible(true);
         
         frame.setVisible(true);
 

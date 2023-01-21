@@ -1,5 +1,6 @@
 package Engine;
 
+import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.KeyAdapter;
@@ -7,6 +8,9 @@ import java.awt.event.KeyEvent;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
 import java.lang.*;
 import java.util.Arrays;
 
@@ -91,9 +95,9 @@ public class Viewport extends JPanel {
         scene.addSolid(new Sphere(new Vec3d(-5,3,5), 2, new Vec3d(0.5,0.5,0.8), 0.3, 0));
         scene.addSolid(new Sphere(new Vec3d(-5,7,5), 2, new Vec3d(0.8,0.8,0.8), 0.4, 0));
 
-        scene.addSolid(new Plane(new Vec3d(0,0,3), new Vec3d(0, 0, 1), new Vec3d(0.3,0.3,0.3), 0.01, 0));
+//        scene.addSolid(new Plane(new Vec3d(0,0,3), new Vec3d(0, 0, 1), new Vec3d(0.3,0.3,0.3), 0.01, 0));
 
-        scene.addSolid(new Parallelepiped(new Vec3d(0, 0, 3), new Vec3d(0,0,3), new Vec3d(0,3,1), new Vec3d(3,0,1), new Vec3d(0.5), 1, 0));
+        scene.addSolid(new Parallelepiped(new Vec3d(0, 0, 3), new Vec3d(0,0,3), new Vec3d(0,3,0), new Vec3d(3,0,0), new Vec3d(0.8, 0.2, 0.2), 0.3, 0));
 
         scene.addLight(new PointLight(new Vec3d(0, 20, 10), new Vec3d(0.8,0.8,0.6), 2));
 
@@ -236,7 +240,44 @@ public class Viewport extends JPanel {
             robot.mouseMove(container.getX() + container.getWidth()/2, container.getY() + container.getHeight()/2);
 
         } else {
+            settings.setVisible(true);
             setCursor(Cursor.getDefaultCursor());
         }
+    }
+
+    public void renderToImage(int width, int height, int maxDepth) throws IOException {
+        BufferedImage image = new BufferedImage(width, height, BufferedImage.TYPE_INT_RGB);
+        System.out.println("Rendering to image...");
+        renderScene(image.getGraphics(), scene, width, height, maxDepth, 1);
+
+        File imgFile = new File("output.png");
+        ImageIO.write(image, "PNG", new FileOutputStream(imgFile));
+        System.out.println("Image saved.");
+
+        Desktop.getDesktop().open(imgFile);
+    }
+
+    public void setResolution(int newResolution){
+        resolution = newResolution;
+    }
+
+    public void setMouseSens(double newMouseSens){
+        mouseSens = newMouseSens;
+    }
+
+    public void setCamSpeed(double newCamSpeed){
+        camSpeed = newCamSpeed;
+    }
+
+    public void setMaxDepth(int newMaxDepth){
+        maxDepth = newMaxDepth;
+    }
+
+    public void setFov(double newFov){
+        camera.setFov(newFov);
+    }
+
+    public Scene getScene(){
+        return scene;
     }
 }

@@ -58,9 +58,9 @@ public class Renderer {
             averageBuffer[3*i + 1] += ((nextPixels[i] >> 8) & 0xFF);
             averageBuffer[3*i + 2] += ((nextPixels[i] >> 16) & 0xFF);
 
-            int r = (int) ((averageBuffer[3*i+2]/numOfScenes) % 255);
-            int g = (int) ((averageBuffer[3*i+1]/numOfScenes) % 255);
-            int b = (int) ((averageBuffer[3*i]/numOfScenes) % 255);
+            int r = (int) (((averageBuffer[3*i+2] - 1)/numOfScenes) & 0xFF);
+            int g = (int) (((averageBuffer[3*i+1] - 1)/numOfScenes) & 0xFF);
+            int b = (int) (((averageBuffer[3*i] - 1)/numOfScenes) & 0xFF);
 
             currPixels[i] = (r << 16) | (g << 8) | b;
         }
