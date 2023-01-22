@@ -20,8 +20,6 @@ public abstract class Solid {
 
     public abstract HitInfo calculateIntersection(Ray ray);
 
-    public abstract Vec3d getNormalAt(Vec3d point);
-
     public Vec3d getPosition() {
         return position;
     }

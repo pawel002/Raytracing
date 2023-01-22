@@ -68,11 +68,11 @@ public class Parallelepiped extends Solid{
         double b = dot(oc, ray.direction);
         double c = lengthSquared(oc) - boundingRadius*boundingRadius;
         if(b*b - a*c < 0){
-            return new HitInfo(-1, null, null);
+            return new HitInfo(-1, null, null,null);
         }
 
         // now we iterate over all triangles and find the closest intersection
-        HitInfo hitInfo = new HitInfo(99999, null, null);
+        HitInfo hitInfo = new HitInfo(99999, null, null, null);
         HitInfo temp;
         for(Triangle triangle : triangles){
             temp = triangle.calculateIntersection(ray);
@@ -80,10 +80,5 @@ public class Parallelepiped extends Solid{
                 hitInfo = temp;
         }
         return hitInfo;
-    }
-
-    @Override
-    public Vec3d getNormalAt(Vec3d point) {
-        return null;
     }
 }

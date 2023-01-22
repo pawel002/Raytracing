@@ -7,6 +7,7 @@ import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.awt.geom.Rectangle2D;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.FileOutputStream;
@@ -16,10 +17,7 @@ import java.util.Arrays;
 
 import Light.Light;
 import Math.Vec3d;
-import Objects.Parallelepiped;
-import Objects.Plane;
-import Objects.Sphere;
-import Objects.Triangle;
+import Objects.*;
 import Raytracer.Camera;
 import Raytracer.Scene;
 import Raytracer.Skybox;
@@ -67,6 +65,8 @@ public class Viewport extends JPanel {
 
     private Robot robot;
 
+    private Font font;
+
 
     public Viewport(JFrame container, JDialog settings){
         this.setFocusable(true);
@@ -90,16 +90,21 @@ public class Viewport extends JPanel {
         skybox = scene.getSkybox();
 
         // setup SCENE
-        scene.addSolid(new Sphere(new Vec3d(-5,-5,5), 2, new Vec3d(0.8,0.5,0.5), 0.1, 0.2));
-        scene.addSolid(new Sphere(new Vec3d(-5,-1,5), 2, new Vec3d(0.5,0.8,0.5), 0.2, 0));
-        scene.addSolid(new Sphere(new Vec3d(-5,3,5), 2, new Vec3d(0.5,0.5,0.8), 0.3, 0));
-        scene.addSolid(new Sphere(new Vec3d(-5,7,5), 2, new Vec3d(0.8,0.8,0.8), 0.4, 0));
+        Sphere sphere1 = new Sphere(new Vec3d(-5,-5,5), 2, new Vec3d(0.8,0.5,0.5), 0.3, 0);
+        sphere1.loadTexture("Earth.jpg");
+
+        scene.addSolid(sphere1);
+//        scene.addSolid(new Sphere(new Vec3d(-5,-1,5), 2, new Vec3d(0.5,0.8,0.5), 0.2, 0));
+//        scene.addSolid(new Sphere(new Vec3d(-5,3,5), 2, new Vec3d(0.5,0.5,0.8), 0.3, 0));
+//        scene.addSolid(new Sphere(new Vec3d(-5,7,5), 2, new Vec3d(0.8,0.8,0.8), 0.4, 0));
 
 //        scene.addSolid(new Plane(new Vec3d(0,0,3), new Vec3d(0, 0, 1), new Vec3d(0.3,0.3,0.3), 0.01, 0));
 
-        scene.addSolid(new Parallelepiped(new Vec3d(0, 0, 3), new Vec3d(0,0,3), new Vec3d(0,3,0), new Vec3d(3,0,0), new Vec3d(0.8, 0.2, 0.2), 0.3, 0));
+//        scene.addSolid(new Parallelepiped(new Vec3d(0, 0, 3), new Vec3d(0,0,3), new Vec3d(0,3,0), new Vec3d(3,0,0), new Vec3d(0.8, 0.2, 0.2), 0.3, 0));
 
-        scene.addLight(new PointLight(new Vec3d(0, 20, 10), new Vec3d(0.8,0.8,0.6), 2));
+//        scene.addSolid(new Mesh("monkey.obj", new Vec3d(0), new Vec3d(0.8, 0.2, 0.2), 0, 0));
+
+        scene.addLight(new PointLight(new Vec3d(0, 20, 10), new Vec3d(0.8,0.8,0.6), 1));
 
         BufferedImage cursorImg = new BufferedImage(16, 16, BufferedImage.TYPE_INT_ARGB);
         blankCursor = Toolkit.getDefaultToolkit().createCustomCursor(cursorImg, new Point(0,0), "blank");
@@ -115,6 +120,8 @@ public class Viewport extends JPanel {
     }
 
     public void runLoop(){
+        font = new Font("Consolas", Font.PLAIN, getWidth()/50);
+
         tempBuffer = new BufferedImage(getWidth(), getHeight(), BufferedImage.TYPE_INT_RGB);
         currBuffer = new BufferedImage(getWidth(), getHeight(), BufferedImage.TYPE_INT_RGB);
 
@@ -170,7 +177,38 @@ public class Viewport extends JPanel {
         if (currBuffer != null)
             g.drawImage(currBuffer, 0, 0, this);
 
-        // paiting options / hud
+        g.setColor(java.awt.Color.WHITE);
+        g.setFont(font);
+        FontMetrics fm = g.getFontMetrics();
+
+        if(!cursorCaptured){
+            String str1 = "Use WSAD, Space and Shift to move";
+            Rectangle2D str1Bounds = fm.getStringBounds(str1, g);
+            g.drawString(str1, 5,20);
+
+            String str2 = "T - progressive rendering, Y - turn off, R - clear buffer";
+            Rectangle2D str2Bounds = fm.getStringBounds(str2, g);
+            g.drawString(str2, 5,20 + (int) str1Bounds.getHeight());
+
+            String str3 = "Look around using mouse";
+            Rectangle2D str3Bounds = fm.getStringBounds(str3, g);
+            g.drawString(str3, 5,20 + (int) (str1Bounds.getHeight() + str2Bounds.getHeight()));
+
+            String str4 = "Change properties in the settings window";
+            Rectangle2D str4Bounds = fm.getStringBounds(str4, g);
+            g.drawString(str4, 5,20 + (int) (str1Bounds.getHeight() + str2Bounds.getHeight() + str3Bounds.getHeight()));
+
+            String str5 = "Don't move while rendering or with progressive rendering on!";
+            Rectangle2D str5Bounds = fm.getStringBounds(str5, g);
+            g.drawString(str5, 5,20 + (int) (str1Bounds.getHeight() + str2Bounds.getHeight() + str3Bounds.getHeight() + str4Bounds.getHeight()));
+        }
+
+
+        if(!skybox.isLoaded()){
+            String skyboxStr = "Loading Skybox...";
+            Rectangle2D skyboxStrBounds = fm.getStringBounds(skyboxStr, g);
+            g.drawString(skyboxStr, (int) (getWidth()/2  - skyboxStrBounds.getWidth()/2),(int) (getHeight()/2  - skyboxStrBounds.getHeight()/2));
+        }
     }
 
     private void createKeyListeners(){
@@ -245,10 +283,23 @@ public class Viewport extends JPanel {
         }
     }
 
-    public void renderToImage(int width, int height, int maxDepth) throws IOException {
+    public void renderToImage(int width, int height, int maxDepth, int antiAliasing) throws IOException {
         BufferedImage image = new BufferedImage(width, height, BufferedImage.TYPE_INT_RGB);
+        BufferedImage tempImage = new BufferedImage(width, height, BufferedImage.TYPE_INT_RGB);
+        long[] imageAverageBuffer = new long[3*width*height];
+
         System.out.println("Rendering to image...");
+
         renderScene(image.getGraphics(), scene, width, height, maxDepth, 1);
+
+        copyCurrBuffer(image, imageAverageBuffer, width * height);
+        int imageAveragedScenes = 1;
+
+        while (imageAveragedScenes < antiAliasing){
+            imageAveragedScenes ++;
+            renderScene(tempImage.getGraphics(), scene, width, height, maxDepth, 1);
+            averageBuffers(image, tempImage, imageAverageBuffer, width * height, imageAveragedScenes);
+        }
 
         File imgFile = new File("output.png");
         ImageIO.write(image, "PNG", new FileOutputStream(imgFile));

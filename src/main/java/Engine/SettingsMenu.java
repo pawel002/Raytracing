@@ -155,31 +155,35 @@ public class SettingsMenu extends JPanel {
         renderPanel.setLayout(new GridLayout(1, 4));
 
         JPanel renderHeight = new JPanel();
-        renderHeight.add(new JLabel("Height: "));
+        renderHeight.add(new JLabel("Image height: "));
         renderHeightVal = new JTextField("1080");
+        renderHeightVal.setPreferredSize(new Dimension(50, 20));
         renderHeight.add(renderHeightVal);
 
         JPanel renderWidth = new JPanel();
-        renderWidth.add(new JLabel("Width: "));
+        renderWidth.add(new JLabel("Image width: "));
         renderWidthVal = new JTextField("1920");
+        renderWidthVal.setPreferredSize(new Dimension(50, 20));
         renderWidth.add(renderWidthVal);
 
         JPanel renderAliasing = new JPanel();
-        renderAliasing.add(new JLabel("Aliasing (spp): "));
-        renderAliasingVal = new JTextField("5");
+        renderAliasing.add(new JLabel("Aliasing (samples per pixel): "));
+        renderAliasingVal = new JTextField("2");
+        renderAliasingVal.setPreferredSize(new Dimension(50, 20));
         renderAliasing.add(renderAliasingVal);
 
         JPanel renderDepth = new JPanel();
-        renderDepth.add(new JLabel("Max depth: "));
+        renderDepth.add(new JLabel("Max depth (ray reflections): "));
         renderDepthVal = new JTextField("5");
+        renderDepthVal.setPreferredSize(new Dimension(50, 20));
         renderDepth.add(renderDepthVal);
 
-        renderPanel.add(renderHeight);
-        renderPanel.add(renderWidth);
-        renderPanel.add(renderAliasing);
-        renderPanel.add(renderDepth);
+        add(renderHeight);
+        add(renderWidth);
+        add(renderAliasing);
+        add(renderDepth);
 
-        add(renderPanel);
+//        add(renderPanel);
 
         buttonRenderImage = new JButton("Render Image");
         add(buttonRenderImage);
@@ -188,7 +192,8 @@ public class SettingsMenu extends JPanel {
             try {
                 viewport.renderToImage(Integer.parseInt(renderWidthVal.getText()),
                                        Integer.parseInt(renderHeightVal.getText()),
-                                       Integer.parseInt(renderDepthVal.getText()));
+                                       Integer.parseInt(renderDepthVal.getText()),
+                                       Integer.parseInt(renderAliasingVal.getText()));
             } catch (IOException ex) {
                 ex.printStackTrace();
                 JOptionPane.showMessageDialog(viewport, ex.toString(), "Could not save image", JOptionPane.ERROR_MESSAGE);

@@ -31,22 +31,17 @@ public class Triangle extends Solid{
         edge2 = subtract(vertices[2], vertices[0]);
         h = cross(ray.direction, edge2);
         a = dot(edge1, h);
-        if(a > -EPS && a < EPS) return new HitInfo(-1, null, null);
+        if(a > -EPS && a < EPS) return new HitInfo(-1, null, null, null);
 
         f = 1.0 / a;
         s = subtract(ray.origin, vertices[0]);
         u = f * dot(s, h);
-        if(u < 0.0 || u > 1.0) return new HitInfo(-1, null, null);
+        if(u < 0.0 || u > 1.0) return new HitInfo(-1, null, null, null);
 
         q = cross(s, edge1);
         v = f * dot(ray.direction, q);
-        if (v < 0.0 || u + v > 1.0) return new HitInfo(-1, null, null);
+        if (v < 0.0 || u + v > 1.0) return new HitInfo(-1, null, null, null);
 
-        return new HitInfo(f * dot(edge2, q), this, normal);
-    }
-
-    @Override
-    public Vec3d getNormalAt(Vec3d point) {
-        return normal;
+        return new HitInfo(f * dot(edge2, q), this, normal, color);
     }
 }

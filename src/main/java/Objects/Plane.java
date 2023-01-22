@@ -20,14 +20,9 @@ public class Plane extends Solid{
         double a = dot(inverse(normal), ray.direction);
         if (a > 1e-2) {
             Vec3d p = subtract(position, ray.origin);
-            return new HitInfo(dot(p, inverse(normal)) / a, this, normal);
+            return new HitInfo(dot(p, inverse(normal)) / a, this, normal, color);
         }
-        return new HitInfo(-1, null, null);
-    }
-
-    @Override
-    public Vec3d getNormalAt(Vec3d point) {
-        return normal;
+        return new HitInfo(-1, null, null, null);
     }
 }
 

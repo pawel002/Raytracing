@@ -30,7 +30,6 @@ public class Scene {
         HitInfo hitInfo = getHitInfo(incomingRay);
         double t = hitInfo.t;
         Solid solid = hitInfo.solid;
-        Vec3d normal = hitInfo.normal;
 
 
         if (solid != null){
@@ -83,12 +82,12 @@ public class Scene {
             Vec3d bisector = normalize(add(lightVec, inverse(normalize(incomingRay.direction))));
             double blinnPhongIntensity = 0.2 * lightIntensity * pow(max(0, dot(bisector, normal)), 10);
 
-            Vec3d addColor = scale(scale(lightSource.color, solid.getColor()), lambertianIntensity + blinnPhongIntensity);
+            Vec3d addColor = scale(scale(lightSource.color, hitInfo.color), lambertianIntensity + blinnPhongIntensity);
             color = add(color, addColor);
         }
 
         // ambient light -  we need albedo, right now we set it to 1
-        color = add(color, solid.getColor());
+        color = add(color, hitInfo.color);
 
         return new Vec3d(min(1.0,  color.x), min(1.0,  color.y), min(1.0,  color.z));
     }
@@ -106,7 +105,7 @@ public class Scene {
     }
 
     private HitInfo getHitInfo(Ray ray){
-        HitInfo hitInfo = new HitInfo(99999, null, null);
+        HitInfo hitInfo = new HitInfo(99999, null, null, null);
 
         for (Solid solid : solids) {
 

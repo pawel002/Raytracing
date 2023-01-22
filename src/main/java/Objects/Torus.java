@@ -42,13 +42,7 @@ public class Torus extends Solid{
 
         }
 
-        return new HitInfo(-1, null, null);
+        return new HitInfo(-1, null, null, null);
 
     }
-
-    @Override
-    public Vec3d getNormalAt(Vec3d point) {
-        return normalize(subtract(point, position));
-    }
-
 }
