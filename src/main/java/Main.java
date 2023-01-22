@@ -3,6 +3,7 @@ import Engine.App;
 import static java.lang.System.out;
 
 // TODO
+// add scaling, rotation and translation to mesh
 // add texture mapping for cubes
 // add scene loader / saver
 // add transparent material

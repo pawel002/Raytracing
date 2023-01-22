@@ -19,6 +19,7 @@ public class Scene {
     private List<Solid> solids = new ArrayList<>();
     private List<Light> lights = new ArrayList<>();
     private Skybox skybox;
+    private boolean mutex;
 
     public Pixel getRayColor(Ray incomingRay, int depth){
 
@@ -26,6 +27,7 @@ public class Scene {
             return new Pixel(skybox.getColor(incomingRay.direction), -1);
         }
 
+        mutex = true;
         // add info about normal to HITINFO - DONE
         HitInfo hitInfo = getHitInfo(incomingRay);
         double t = hitInfo.t;
@@ -46,9 +48,11 @@ public class Scene {
             // actual color that comes to the camera
             Vec3d color = add(scale(hitColor, 1 - solid.getReflectivity()), scale(reflectionColor, solid.getReflectivity()));
 
+            mutex = false;
             return new Pixel(color, t);
         }
 
+        mutex = false;
         return new Pixel(skybox.getColor(incomingRay.direction), -1);
     }
 
@@ -89,7 +93,7 @@ public class Scene {
         // ambient light -  we need albedo, right now we set it to 1
         color = add(color, hitInfo.color);
 
-        return new Vec3d(min(1.0,  color.x), min(1.0,  color.y), min(1.0,  color.z));
+        return new Vec3d(min(0.999,  color.x), min(0.999,  color.y), min(0.999,  color.z));
     }
 
     private Vec3d getReflectionColor(HitInfo hitInfo, Ray incomingRay, int depth){
@@ -107,7 +111,9 @@ public class Scene {
     private HitInfo getHitInfo(Ray ray){
         HitInfo hitInfo = new HitInfo(99999, null, null, null);
 
-        for (Solid solid : solids) {
+        for (int i=0; i<solids.size(); i++) {
+
+            Solid solid = solids.get(i);
 
             HitInfo tempHitInfo = solid.calculateIntersection(ray);
 
@@ -139,4 +145,13 @@ public class Scene {
     public Skybox getSkybox() {
         return skybox;
     }
+
+    public boolean clearScene(){
+        if(mutex)
+            return false;
+        solids.clear();
+        lights.clear();
+        return true;
+    }
+
 }

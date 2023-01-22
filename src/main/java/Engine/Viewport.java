@@ -67,6 +67,8 @@ public class Viewport extends JPanel {
 
     private Font font;
 
+    private boolean running;
+
 
     public Viewport(JFrame container, JDialog settings){
         this.setFocusable(true);
@@ -83,6 +85,7 @@ public class Viewport extends JPanel {
         timePerFrame = -1;
         cameraMoved = false;
         progressiveRendering = false;
+        running = true;
 
         // get scene elements
         scene = new Scene();
@@ -90,10 +93,10 @@ public class Viewport extends JPanel {
         skybox = scene.getSkybox();
 
         // setup SCENE
-        Sphere sphere1 = new Sphere(new Vec3d(-5,-5,5), 2, new Vec3d(0.8,0.5,0.5), 0.3, 0);
-        sphere1.loadTexture("Earth.jpg");
+//        Sphere sphere1 = new Sphere(new Vec3d(-5,-5,5), 2, new Vec3d(0.9,0.9,0.9), 0.3, 0);
+//        sphere1.loadTexture("Earth.jpg");
 
-        scene.addSolid(sphere1);
+//        scene.addSolid(sphere1);
 //        scene.addSolid(new Sphere(new Vec3d(-5,-1,5), 2, new Vec3d(0.5,0.8,0.5), 0.2, 0));
 //        scene.addSolid(new Sphere(new Vec3d(-5,3,5), 2, new Vec3d(0.5,0.5,0.8), 0.3, 0));
 //        scene.addSolid(new Sphere(new Vec3d(-5,7,5), 2, new Vec3d(0.8,0.8,0.8), 0.4, 0));
@@ -102,7 +105,7 @@ public class Viewport extends JPanel {
 
 //        scene.addSolid(new Parallelepiped(new Vec3d(0, 0, 3), new Vec3d(0,0,3), new Vec3d(0,3,0), new Vec3d(3,0,0), new Vec3d(0.8, 0.2, 0.2), 0.3, 0));
 
-//        scene.addSolid(new Mesh("monkey.obj", new Vec3d(0), new Vec3d(0.8, 0.2, 0.2), 0, 0));
+        scene.addSolid(new Mesh("monkey.obj", new Vec3d(0), new Vec3d(0.8, 0.2, 0.2), 0, 0));
 
         scene.addLight(new PointLight(new Vec3d(0, 20, 10), new Vec3d(0.8,0.8,0.6), 1));
 
@@ -129,7 +132,7 @@ public class Viewport extends JPanel {
         averageBuffer = new long[3 * getWidth() * getHeight()];
         averagedScenes = 1;
 
-        while (true){
+        while (running){
             long start = System.currentTimeMillis();
 
             handleCameraTranslation();

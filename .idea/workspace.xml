@@ -5,43 +5,23 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="56813896-4263-4435-a6e3-cbef190dffa8" name="Changes" comment="update">
-      <change afterPath="$PROJECT_DIR$/src/main/java/Objects/Mesh.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/meshes/monkey.obj" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/textures/Earth.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/textures/error_skybox.jpg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/7.4/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.4/executionHistory/executionHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/7.4/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.4/executionHistory/executionHistory.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/7.4/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.4/fileHashes/fileHashes.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/7.4/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.4/fileHashes/fileHashes.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/7.4/fileHashes/resourceHashesCache.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.4/fileHashes/resourceHashesCache.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/file-system.probe" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/file-system.probe" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/Engine/Viewport$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/Engine/Viewport$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/Engine/Viewport$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/Engine/Viewport$2.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/Engine/Viewport$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/Engine/Viewport$3.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/Engine/SettingsMenu$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/Engine/SettingsMenu$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/Engine/SettingsMenu.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/Engine/SettingsMenu.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/classes/java/main/Engine/Viewport.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/Engine/Viewport.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/classes/java/main/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/Main.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/Math/HitInfo.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/Math/HitInfo.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/Objects/Parallelepiped.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/Objects/Parallelepiped.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/Objects/Plane.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/Objects/Plane.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/Objects/Solid.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/Objects/Solid.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/Objects/Sphere.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/Objects/Sphere.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/Objects/Torus.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/Objects/Torus.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/Objects/Triangle.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/Objects/Triangle.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/classes/java/main/Raytracer/Scene.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/Raytracer/Scene.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/previous-compilation-data.bin" beforeDir="false" afterPath="$PROJECT_DIR$/build/tmp/compileJava/previous-compilation-data.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/output.png" beforeDir="false" afterPath="$PROJECT_DIR$/output.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Engine/SettingsMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Engine/SettingsMenu.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Engine/Viewport.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Engine/Viewport.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Math/HitInfo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Math/HitInfo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Objects/Parallelepiped.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Objects/Parallelepiped.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Objects/Plane.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Objects/Plane.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Objects/Solid.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Objects/Solid.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Objects/Sphere.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Objects/Sphere.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Objects/Torus.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Objects/Torus.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Objects/Triangle.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Objects/Triangle.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Raytracer/Scene.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Raytracer/Scene.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -105,27 +85,27 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_ADD_EXTERNAL_FILES": "true",
-    "Downloaded.Files.Path.Enabled": "true",
-    "Repository.Attach.Annotations": "false",
-    "Repository.Attach.JavaDocs": "false",
-    "Repository.Attach.Sources": "false",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit5",
-    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5": "",
-    "last_opened_file_path": "B:/AGH 3 SEM/OOP-Raytracing/src/main/resources/textures",
-    "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Libraries",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.4597701",
-    "settings.editor.selected.configurable": "project.propVCSSupport.DirectoryMappings"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;Downloaded.Files.Path.Enabled&quot;: &quot;true&quot;,
+    &quot;Repository.Attach.Annotations&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.JavaDocs&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.Sources&quot;: &quot;false&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary&quot;: &quot;JUnit5&quot;,
+    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5&quot;: &quot;&quot;,
+    &quot;last_opened_file_path&quot;: &quot;B:/AGH 3 SEM/OOP-Raytracing/src/main/resources/textures&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Libraries&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.4597701&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;project.propVCSSupport.DirectoryMappings&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
       <recent name="Save" />
@@ -473,7 +453,21 @@
       <option name="project" value="LOCAL" />
       <updated>1674321509996</updated>
     </task>
-    <option name="localTasksCounter" value="33" />
+    <task id="LOCAL-00033" summary="update">
+      <created>1674350181858</created>
+      <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL-00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1674350181858</updated>
+    </task>
+    <task id="LOCAL-00034" summary="update">
+      <created>1674350186037</created>
+      <option name="number" value="00034" />
+      <option name="presentableId" value="LOCAL-00034" />
+      <option name="project" value="LOCAL" />
+      <updated>1674350186037</updated>
+    </task>
+    <option name="localTasksCounter" value="35" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

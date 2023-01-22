@@ -1,5 +1,8 @@
 package Engine;
 
+import Objects.Parallelepiped;
+import Objects.Sphere;
+import Raytracer.Scene;
 import Raytracer.Skybox;
 
 import javax.swing.*;
@@ -8,6 +11,8 @@ import java.awt.*;
 import java.awt.event.ItemEvent;
 import java.io.File;
 import java.io.IOException;
+
+import Math.*;
 
 public class SettingsMenu extends JPanel {
 
@@ -98,8 +103,8 @@ public class SettingsMenu extends JPanel {
         sceneComboBox = new JComboBox<String>();
         sceneComboBox.addItem("Spheres");
         sceneComboBox.addItem("Cubes");
-        sceneComboBox.addItem("name1");
-        sceneComboBox.addItem("name2");
+        sceneComboBox.addItem("Texture");
+        sceneComboBox.addItem("Mesh");
         sceneComboBox.addItem("name3");
         sceneComboBox.addItem("custom");
         scenePanel.add(sceneComboBox);
@@ -145,7 +150,35 @@ public class SettingsMenu extends JPanel {
             }
         });
 
-        // add options for changing scene
+        sceneComboBox.addItemListener(e -> {
+            if (e.getStateChange() == ItemEvent.SELECTED) {
+                Scene scene = viewport.getScene();
+                switch (sceneComboBox.getSelectedIndex()) {
+                    case 0: // Spheres
+                        scene.clearScene();
+                        scene.addSolid(new Sphere(new Vec3d(0,0,0), 2, new Vec3d(0.9), 0.3, 0.2));
+                        scene.addSolid(new Sphere(new Vec3d(0,4,0), 2, new Vec3d(0.2, 0.9, 0.9), 0.3, 0));
+                        scene.addSolid(new Sphere(new Vec3d(0,8,0), 2, new Vec3d(0.9, 0.2, 0.9), 0.3, 0));
+                        scene.addSolid(new Sphere(new Vec3d(0,12,0), 2, new Vec3d(0.9,0.9,0.2), 0.3, 0));
+                        break;
+                    case 1: // Cubes
+                        scene.clearScene();
+                        scene.addSolid(new Parallelepiped(new Vec3d(-1, -1, -1), new Vec3d(2,0,0), new Vec3d(0,2,0), new Vec3d(0,0,2), new Vec3d(0.9), 0.3, 0.2));
+                        scene.addSolid(new Parallelepiped(new Vec3d(-1, 3, -1), new Vec3d(2,0,0), new Vec3d(0,2,0), new Vec3d(0,0,2), new Vec3d(0.2, 0.9, 0.9), 0.3, 0));
+                        scene.addSolid(new Parallelepiped(new Vec3d(-1, 7, -1), new Vec3d(2,0,0), new Vec3d(0,2,0), new Vec3d(0,0,2), new Vec3d(0.9, 0.2, 0.9), 0.3, 0));
+                        scene.addSolid(new Parallelepiped(new Vec3d(-1, 11, -1), new Vec3d(2,0,0), new Vec3d(0,2,0), new Vec3d(0,0,2), new Vec3d(0.9,0.9,0.2), 0.3, 0));
+                        break;
+                    case 2: // Textures
+                        scene.clearScene();
+                        break;
+                    case 3: // Mesh
+                        scene.clearScene();
+                        break;
+                    default:
+                        break;
+                }
+            }
+        });
 
         JPanel renderingPanel = new JPanel();
         renderingPanel.add(new JLabel("RENDERING IMAGE"));
