@@ -5,31 +5,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="56813896-4263-4435-a6e3-cbef190dffa8" name="Changes" comment="update">
-      <change afterPath="$PROJECT_DIR$/src/main/java/Math/Solvers.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/7.4/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.4/executionHistory/executionHistory.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/7.4/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.4/executionHistory/executionHistory.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/7.4/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.4/fileHashes/fileHashes.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/7.4/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.4/fileHashes/fileHashes.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/7.4/fileHashes/resourceHashesCache.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.4/fileHashes/resourceHashesCache.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/file-system.probe" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/file-system.probe" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/Engine/SettingsMenu$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/Engine/SettingsMenu$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/Engine/SettingsMenu.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/Engine/SettingsMenu.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/Engine/Viewport$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/Engine/Viewport$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/Engine/Viewport$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/Engine/Viewport$2.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/Engine/Viewport$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/Engine/Viewport$3.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/Engine/Viewport.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/Engine/Viewport.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/Objects/Torus.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/Objects/Torus.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/Raytracer/Scene.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/Raytracer/Scene.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/textures/error_skybox.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/previous-compilation-data.bin" beforeDir="false" afterPath="$PROJECT_DIR$/build/tmp/compileJava/previous-compilation-data.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/output.png" beforeDir="false" afterPath="$PROJECT_DIR$/output.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Engine/SettingsMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Engine/SettingsMenu.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Engine/Viewport.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Engine/Viewport.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Objects/Torus.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Objects/Torus.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Math/Vec3d.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Math/Vec3d.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Objects/Parallelepiped.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Objects/Parallelepiped.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Objects/Solid.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Objects/Solid.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Raytracer/Renderer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Raytracer/Renderer.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Raytracer/Scene.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Raytracer/Scene.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/textures/error_skybox.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/textures/error_texture.jpg" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -502,7 +488,21 @@
       <option name="project" value="LOCAL" />
       <updated>1674522026303</updated>
     </task>
-    <option name="localTasksCounter" value="39" />
+    <task id="LOCAL-00039" summary="update">
+      <created>1674531843145</created>
+      <option name="number" value="00039" />
+      <option name="presentableId" value="LOCAL-00039" />
+      <option name="project" value="LOCAL" />
+      <updated>1674531843145</updated>
+    </task>
+    <task id="LOCAL-00040" summary="update">
+      <created>1674531846793</created>
+      <option name="number" value="00040" />
+      <option name="presentableId" value="LOCAL-00040" />
+      <option name="project" value="LOCAL" />
+      <updated>1674531846793</updated>
+    </task>
+    <option name="localTasksCounter" value="41" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

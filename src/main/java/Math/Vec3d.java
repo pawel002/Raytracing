@@ -1,8 +1,6 @@
 package Math;
 
-import static java.lang.Math.cos;
-import static java.lang.Math.sin;
-import static java.lang.Math.toRadians;
+import static java.lang.Math.*;
 
 public class Vec3d {
     public double x;
@@ -107,5 +105,12 @@ public class Vec3d {
         return String.format("{%.2f, %.2f, %.2f}", x, y, z);
     }
 
+
+    public static Vec3d refract(Vec3d uv, Vec3d n, double ratio) {
+        double cos_theta = min(dot(inverse(uv), n), 1.0);
+        Vec3d perpendicular = scale(add(uv, scale(n, cos_theta)), ratio);
+        Vec3d parallel = scale(n, -sqrt(abs(1.0 - lengthSquared(perpendicular))));
+        return add(perpendicular, parallel);
+    }
 
 }

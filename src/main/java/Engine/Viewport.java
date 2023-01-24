@@ -91,6 +91,9 @@ public class Viewport extends JPanel {
         camera = scene.getCamera();
         skybox = scene.getSkybox();
 
+        Parallelepiped p1 = new Parallelepiped(new Vec3d(5, -5, -10), new Vec3d(2,1,0), new Vec3d(-1,2,0), new Vec3d(0,0,7), new Vec3d(0.9, 0.9, 0.9), 0.3, 0, 0.5, 0.2, 0.8, 30);
+        p1.makeTransparent(1.5);
+        scene.addSolid(p1);
 
         BufferedImage cursorImg = new BufferedImage(16, 16, BufferedImage.TYPE_INT_ARGB);
         blankCursor = Toolkit.getDefaultToolkit().createCustomCursor(cursorImg, new Point(0,0), "blank");
@@ -286,6 +289,7 @@ public class Viewport extends JPanel {
         int imageAveragedScenes = 1;
 
         while (imageAveragedScenes < antiAliasing){
+            out.println("Rendering buffer number: " + Integer.toString(imageAveragedScenes));
             imageAveragedScenes ++;
             renderScene(tempImage.getGraphics(), scene, width, height, maxDepth, 1);
             averageBuffers(image, tempImage, imageAverageBuffer, width * height, imageAveragedScenes);

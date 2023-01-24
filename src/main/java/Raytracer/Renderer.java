@@ -46,7 +46,7 @@ public class Renderer {
 
     private static Pixel getPixelColor(Scene scene, Camera cam, double[] v, int maxDepth){
         Ray ray = cam.castRay(v[0], v[1]);
-        return scene.getRayColor(ray, maxDepth);
+        return scene.getRayColor(ray, maxDepth, 1);
     }
 
     public static void averageBuffers(BufferedImage currBuffer, BufferedImage nextBuffer, long[] averageBuffer, int size, int numOfScenes){

@@ -38,11 +38,11 @@ public class Parallelepiped extends Solid{
         vertices[6] = add(vertices[2], v3);
         vertices[7] = add(vertices[4], v3);
 
-        triangles.add(new Triangle(vertices[0], vertices[1], vertices[3], color, reflectivity, roughness, albedo, lambertian, blinn, blinnExp));
-        triangles.add(new Triangle(vertices[1], vertices[5], vertices[3], color, reflectivity, roughness, albedo, lambertian, blinn, blinnExp));
+        triangles.add(new Triangle(vertices[0], vertices[3], vertices[1], color, reflectivity, roughness, albedo, lambertian, blinn, blinnExp));
+        triangles.add(new Triangle(vertices[1], vertices[3], vertices[5], color, reflectivity, roughness, albedo, lambertian, blinn, blinnExp));
 
-        triangles.add(new Triangle(vertices[1], vertices[4], vertices[5], color, reflectivity, roughness, albedo, lambertian, blinn, blinnExp));
-        triangles.add(new Triangle(vertices[5], vertices[4], vertices[7], color, reflectivity, roughness, albedo, lambertian, blinn, blinnExp));
+        triangles.add(new Triangle(vertices[1], vertices[5], vertices[4], color, reflectivity, roughness, albedo, lambertian, blinn, blinnExp));
+        triangles.add(new Triangle(vertices[5], vertices[7], vertices[4], color, reflectivity, roughness, albedo, lambertian, blinn, blinnExp));
 
 
         triangles.add(new Triangle(vertices[4], vertices[7], vertices[6], color, reflectivity, roughness, albedo, lambertian, blinn, blinnExp));
@@ -85,6 +85,13 @@ public class Parallelepiped extends Solid{
                 hitInfo = temp;
         }
         return hitInfo;
+    }
+
+    @Override
+    public void makeTransparent(double idx){
+        for(Triangle t : triangles){
+            t.makeTransparent(idx);
+        }
     }
 
     public void loadTexture(String filename){

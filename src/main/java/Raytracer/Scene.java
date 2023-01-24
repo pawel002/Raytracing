@@ -6,12 +6,14 @@ import Objects.Solid;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 import Math.*;
 
 import static Math.Vec3d.*;
 import static Math.Utils.*;
 import static java.lang.Math.*;
+import static java.lang.System.out;
 
 public class Scene {
 
@@ -19,15 +21,14 @@ public class Scene {
     private List<Solid> solids = new ArrayList<>();
     private List<Light> lights = new ArrayList<>();
     private Skybox skybox;
-    private boolean mutex;
+    private final Random rand = new Random();
 
-    public Pixel getRayColor(Ray incomingRay, int depth){
+    public Pixel getRayColor(Ray incomingRay, int depth, double currRefraction){
 
         if(depth == 0){
             return new Pixel(skybox.getColor(incomingRay.direction), -1);
         }
 
-        mutex = true;
         // add info about normal to HITINFO - DONE
         HitInfo hitInfo = getHitInfo(incomingRay);
         double t = hitInfo.t;
@@ -36,6 +37,25 @@ public class Scene {
 
         if (solid != null){
 
+            // if the solid is transparent
+            if (solid.isTransparent()){
+
+                Vec3d direction = normalize(incomingRay.direction);
+                double cosTheta = min(dot(inverse(direction), hitInfo.normal), 1.0);
+                double sinTheta = sqrt(1.0 - cosTheta*cosTheta);
+
+                boolean cannotRefract = currRefraction / solid.getRefractionIndex() * sinTheta > 1.0;
+
+                if (cannotRefract || reflectance(cosTheta, solid.getRefractionIndex()) > rand.nextDouble()){
+                    return new Pixel(getReflectionColor(hitInfo, incomingRay, depth, currRefraction), t);
+                }
+                else {
+                    direction = refract(direction, hitInfo.normal, currRefraction/solid.getRefractionIndex());
+                    return getRayColor(new Ray(incomingRay.at(t), direction), depth, solid.getRefractionIndex());
+                }
+
+            }
+
             // color of the point hit by incoming ray
             Vec3d hitColor = getHitColor(hitInfo, incomingRay);
 
@@ -43,16 +63,14 @@ public class Scene {
                 return new Pixel(hitColor, t);
 
             // reflection color
-            Vec3d reflectionColor = getReflectionColor(hitInfo, incomingRay, depth);
+            Vec3d reflectionColor = getReflectionColor(hitInfo, incomingRay, depth, currRefraction);
 
             // actual color that comes to the camera
             Vec3d color = add(scale(hitColor, 1 - solid.getReflectivity()), scale(reflectionColor, solid.getReflectivity()));
 
-            mutex = false;
             return new Pixel(color, t);
         }
 
-        mutex = false;
         return new Pixel(skybox.getColor(incomingRay.direction), -1);
     }
 
@@ -117,6 +135,37 @@ public class Scene {
 
                 Vec3d addColor = scale(scale(lightSource.color, hitInfo.color), lambertianIntensity + blinnPhongIntensity);
                 color = add(color, addColor);
+
+            } else if(lightSource instanceof SphereLight SLight){
+
+                double sphereSamples = 10;
+
+                for(int j=0; j<sphereSamples; j++) {
+
+                    Vec3d lightVec = subtract(add(SLight.position, scale(randomInSphere(), SLight.radius)), hitPoint);
+                    double distanceSquared = lengthSquared(lightVec);
+
+                    Ray lightRay = new Ray(hitPoint, lightVec);
+                    HitInfo lightHitInfo = getHitInfo(lightRay);
+
+                    double distanceNextHit = lengthSquared(subtract(lightRay.at(lightHitInfo.t), hitPoint));
+
+                    if (lightHitInfo.solid != null && distanceNextHit < distanceSquared) {
+                        continue;
+                    }
+
+                    double lightIntensity = SLight.intensity / sphereSamples / distanceSquared;
+
+                    // Lambertian shading
+                    double lambertianIntensity = solid.getLambertian() * lightIntensity * max(0, dot(lightVec, normal));
+
+                    // Blinn - Phong (blinn-phong coef material??)
+                    Vec3d bisector = normalize(add(lightVec, inverse(normalize(incomingRay.direction))));
+                    double blinnPhongIntensity = solid.getBlinn() * lightIntensity * pow(max(0, dot(bisector, normal)), solid.getBlinnExp());
+
+                    Vec3d addColor = scale(scale(SLight.color, hitInfo.color), lambertianIntensity + blinnPhongIntensity);
+                    color = add(color, addColor);
+                }
             }
         }
 
@@ -126,7 +175,7 @@ public class Scene {
         return new Vec3d(min(0.999,  color.x), min(0.999,  color.y), min(0.999,  color.z));
     }
 
-    private Vec3d getReflectionColor(HitInfo hitInfo, Ray incomingRay, int depth){
+    private Vec3d getReflectionColor(HitInfo hitInfo, Ray incomingRay, int depth, double currRefraction){
 
         double t = hitInfo.t;;
         Solid solid = hitInfo.solid;
@@ -135,7 +184,7 @@ public class Scene {
         Vec3d dir = normalize(incomingRay.direction);
         Ray newRay = new Ray(incomingRay.at(t), add(subtract(dir, scale(normal, 2 * dot(dir, normal))), scale(randomInSphere(), solid.getRoughness())));
 
-        return getRayColor(newRay, depth - 1).getColor();
+        return getRayColor(newRay, depth - 1, currRefraction).getColor();
     }
 
     private HitInfo getHitInfo(Ray ray){
@@ -153,6 +202,13 @@ public class Scene {
         }
 
         return hitInfo;
+    }
+
+    private static double reflectance(double cosine, double ref) {
+        // Use Schlick's approximation for reflectance.
+        double r = (1-ref) / (1+ref);
+        r = r * r;
+        return r + (1-r)*pow((1 - cosine),5);
     }
 
     public Scene(){
@@ -176,12 +232,9 @@ public class Scene {
         return skybox;
     }
 
-    public boolean clearScene(){
-        if(mutex)
-            return false;
+    public void clearScene(){
         solids.clear();
         lights.clear();
-        return true;
     }
 
 }

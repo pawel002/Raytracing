@@ -14,6 +14,8 @@ public abstract class Solid {
     protected double lambertian;
     protected double blinn;
     protected int blinnExp;
+    protected double refractionIndex;
+    protected boolean isTransparent=false;
 
     public Solid(Vec3d position, Vec3d color, double reflectivity, double roughness, double albedo, double lambertian, double blinn, int blinnExp) {
         this.position = position;
@@ -61,5 +63,18 @@ public abstract class Solid {
 
     public double getRoughness() {
         return roughness;
+    }
+
+    public void makeTransparent(double idx){
+        isTransparent = true;
+        refractionIndex = idx;
+    }
+
+    public boolean isTransparent(){
+        return isTransparent;
+    }
+
+    public double getRefractionIndex(){
+        return refractionIndex;
     }
 }

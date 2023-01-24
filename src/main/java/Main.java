@@ -1,12 +1,7 @@
 import Engine.App;
 
-import java.util.Arrays;
-
-import static java.lang.System.out;
-
 // TODO
 // add transparent material
-// add sampling from spherical light for soft shadows - optional
 
 public class Main {
 

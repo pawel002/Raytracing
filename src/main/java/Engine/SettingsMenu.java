@@ -2,6 +2,7 @@ package Engine;
 
 import Light.DirectionalLight;
 import Light.PointLight;
+import Light.SphereLight;
 import Objects.*;
 import Raytracer.Scene;
 import Raytracer.Skybox;
@@ -16,6 +17,7 @@ import java.io.IOException;
 import Math.*;
 
 import static java.lang.Math.PI;
+import static java.lang.Math.asin;
 
 public class SettingsMenu extends JPanel {
 
@@ -36,6 +38,7 @@ public class SettingsMenu extends JPanel {
     private JTextField renderDepthVal;
 
     private JButton buttonRenderImage;
+    private JButton buttonClearScene;
 
     public SettingsMenu(Viewport viewport){
         this.viewport = viewport;
@@ -115,6 +118,7 @@ public class SettingsMenu extends JPanel {
         sceneComboBox.addItem("Reflectivity Showcase");
         sceneComboBox.addItem("Roughness Showcase");
         sceneComboBox.addItem("Albedo Showcase");
+        sceneComboBox.addItem("Refraction Showcase");
         sceneComboBox.addItem("Many Items");
         sceneComboBox.addItem("Cornell Box");
         sceneComboBox.addItem("custom");
@@ -329,7 +333,27 @@ public class SettingsMenu extends JPanel {
                             scene.addSolid(new Sphere(new Vec3d(0,i*2.5,0), 1, new Vec3d(0.4), 0.2, 0, 0.1*i, 0, 0, 10));
                         }
                         break;
-                    case 11: // many items
+                    case 11: // refraction showcase
+                        scene.clearScene();
+                        try {
+                            Thread.sleep(100);
+                        } catch (InterruptedException ex) {
+                            throw new RuntimeException(ex);
+                        }
+                        scene.clearScene();
+
+                        scene.addLight(new DirectionalLight(new Vec3d(0, -1, -1), new Vec3d(0.8,0.8,0.8), 0.5));
+                        Sphere s11;
+
+                        for(int i=0; i<11; i++) {
+                            s11 = new Sphere(new Vec3d(0, i * 2.5, 0), 1, new Vec3d(0.4), 0.2, 0, 0.1, 0, 0, 10);
+                            s11.makeTransparent(0.6 + i * 0.2);
+
+                            scene.addSolid(s11);
+                        }
+
+                        break;
+                    case 12: // many items
                         scene.clearScene();
                         try {
                             Thread.sleep(100);
@@ -355,7 +379,7 @@ public class SettingsMenu extends JPanel {
                         scene.addLight(new PointLight(new Vec3d(0, 20, 10), new Vec3d(0.8,0.8,0.6), 3));
 
                         break;
-                    case 12: // cornell box
+                    case 13: // cornell box
                         scene.clearScene();
                         try {
                             Thread.sleep(100);
@@ -364,25 +388,31 @@ public class SettingsMenu extends JPanel {
                         }
                         scene.clearScene();
 
-//                        scene.addLight(new DirectionalLight(new Vec3d(-1, -2, -5), new Vec3d(0.1,0.1,0.6), 2));
-                        scene.addLight(new PointLight(new Vec3d(0, 0, 0), new Vec3d(0.6,0.6,0.6), 10));
+                        scene.addLight(new SphereLight(new Vec3d(0, 0, 0), 1, new Vec3d(0.6,0.6,0.6), 10));
 
                         scene.addSolid(new Triangle(new Vec3d(-10,-10,-10), new Vec3d(-10,10,-10),new Vec3d(10,-10,-10), new Vec3d(0.8), 0.1, 0.05, 0.2, 0.5, 0.2, 10));
                         scene.addSolid(new Triangle(new Vec3d(10,-10,-10), new Vec3d(-10,10,-10), new Vec3d(10,10,-10), new Vec3d(0.8), 0.1, 0.05, 0.2, 0.5, 0.2, 10));
-//
+
                         scene.addSolid(new Triangle(new Vec3d(10,-10,-10), new Vec3d(-10,-10,10), new Vec3d(-10,-10,-10), new Vec3d(0.8, 0.2, 0.2), 0.1, 0.05, 0.2, 0.5, 0.2, 10));
                         scene.addSolid(new Triangle(new Vec3d(10,-10,10), new Vec3d(-10,-10,10), new Vec3d(10,-10,-10), new Vec3d(0.8, 0.2, 0.2), 0.1, 0.05, 0.2, 0.5, 0.2, 10));
-//
+
                         scene.addSolid(new Triangle(new Vec3d(-10,-10,-10), new Vec3d(-10,-10,10), new Vec3d(-10,10,-10), new Vec3d(0.2,0.8,0.2), 0.1, 0.05, 0.2, 1, 0.2, 10));
                         scene.addSolid(new Triangle(new Vec3d(-10,10,-10), new Vec3d(-10,-10,10), new Vec3d(-10,10,10), new Vec3d(0.2,0.8,0.2), 0.1, 0.05, 0.2, 1, 0.2, 10));
-//
+
                         scene.addSolid(new Triangle(new Vec3d(10,-10,-10), new Vec3d(10,10,-10), new Vec3d(10,-10,10), new Vec3d(0.2,0.2,0.8), 0.1, 0.05, 0.2, 1, 0.2, 10));
                         scene.addSolid(new Triangle(new Vec3d(10,10,-10), new Vec3d(10,10,10), new Vec3d(10,-10,10), new Vec3d(0.2,0.2,0.8), 0.1, 0.05, 0.2, 1, 0.2, 10));
-//
+
                         scene.addSolid(new Triangle(new Vec3d(-10,10,10), new Vec3d(-10,-10,10), new Vec3d(10,-10,10),  new Vec3d(0.8), 0.1, 0.05, 0.2, 1, 0.5, 10));
                         scene.addSolid(new Triangle(new Vec3d(10,-10,10), new Vec3d(10,10,10), new Vec3d(-10,10,10),   new Vec3d(0.8), 0.1, 0.05, 0.2, 1, 0.2, 10));
 
                         scene.addSolid(new Sphere(new Vec3d(0,0,-7.5), 2.5, new Vec3d(0.4, 0.4, 0.4), 0.2, 0, 0.4, 0.5, 2, 30));
+                        Sphere s13 = new Sphere(new Vec3d(3,3,-8.5), 1.5, new Vec3d(0.4, 0.4, 0.4), 0.2, 0, 0.4, 0.5, 2, 30);
+                        s13.makeTransparent(1.5);
+
+                        scene.addSolid(s13);
+
+                        Parallelepiped p13 = new Parallelepiped(new Vec3d(5, -5, -10), new Vec3d(2,1,0), new Vec3d(-1,2,0), new Vec3d(0,0,7), new Vec3d(0.9, 0.2, 0.9), 0.3, 0, 0.5, 0.2, 0.8, 30);
+                        scene.addSolid(p13);
 
                         break;
                     default:
@@ -428,6 +458,8 @@ public class SettingsMenu extends JPanel {
         add(renderDepth);
 
 //        add(renderPanel);
+        buttonClearScene = new JButton("Clear Scene");
+        add(buttonClearScene);
 
         buttonRenderImage = new JButton("Render Image");
         add(buttonRenderImage);
@@ -442,6 +474,10 @@ public class SettingsMenu extends JPanel {
                 ex.printStackTrace();
                 JOptionPane.showMessageDialog(viewport, ex.toString(), "Could not save image", JOptionPane.ERROR_MESSAGE);
             }
+        });
+
+        buttonClearScene.addActionListener(e -> {
+            viewport.getScene().clearScene();
         });
     }
 
