@@ -1,7 +1,7 @@
 package Raytracer;
 
 import Light.Light;
-import Light.PointLight;
+import Light.*;
 import Objects.Solid;
 
 import java.util.ArrayList;
@@ -65,33 +65,62 @@ public class Scene {
         Vec3d color = new Vec3d(0);
 
         // works only for points light sources
-        for(Light lightSource: lights){
+        for(int i=0; i<lights.size(); i++){
 
-            Vec3d lightVec = normalize(subtract(((PointLight) lightSource).position, hitPoint));
+            Light lightSource = lights.get(i);
 
-            Ray lightRay = new Ray(hitPoint, lightVec);
-            HitInfo lightHitInfo = getHitInfo(lightRay);
+            if(lightSource instanceof PointLight) {
 
-            if(lightHitInfo.solid != null){
-                continue;
+                Vec3d lightVec = normalize(subtract(((PointLight) lightSource).position, hitPoint));
+
+                Ray lightRay = new Ray(hitPoint, lightVec);
+                HitInfo lightHitInfo = getHitInfo(lightRay);
+
+                if (lightHitInfo.solid != null) {
+                    continue;
+                }
+
+                double distanceSquared = lengthSquared(lightVec);
+                double lightIntensity = lightSource.intensity / distanceSquared;
+
+                // Lambertian shading
+                double lambertianIntensity = solid.getLambertian() * lightIntensity * max(0, dot(lightVec, normal));
+
+                // Blinn - Phong (blinn-phong coef material??)
+                Vec3d bisector = normalize(add(lightVec, inverse(normalize(incomingRay.direction))));
+                double blinnPhongIntensity = solid.getBlinn() * lightIntensity * pow(max(0, dot(bisector, normal)), solid.getBlinnExp());
+
+                Vec3d addColor = scale(scale(lightSource.color, hitInfo.color), lambertianIntensity + blinnPhongIntensity);
+                color = add(color, addColor);
+
+            } else if(lightSource instanceof DirectionalLight){
+
+                Vec3d lightVec = normalize(inverse(((DirectionalLight) lightSource).direction));
+
+                Ray lightRay = new Ray(hitPoint, lightVec);
+                HitInfo lightHitInfo = getHitInfo(lightRay);
+
+                if (lightHitInfo.solid != null) {
+                    continue;
+                }
+
+                double distanceSquared = lengthSquared(lightVec);
+                double lightIntensity = lightSource.intensity / distanceSquared;
+
+                // Lambertian shading
+                double lambertianIntensity = solid.getLambertian() * lightIntensity * max(0, dot(lightVec, normal));
+
+                // Blinn - Phong (blinn-phong coef material??)
+                Vec3d bisector = normalize(add(lightVec, inverse(normalize(incomingRay.direction))));
+                double blinnPhongIntensity = solid.getBlinn() * lightIntensity * pow(max(0, dot(bisector, normal)), solid.getBlinnExp());
+
+                Vec3d addColor = scale(scale(lightSource.color, hitInfo.color), lambertianIntensity + blinnPhongIntensity);
+                color = add(color, addColor);
             }
-
-            double distanceSquared = lengthSquared(lightVec);
-            double lightIntensity =  lightSource.intensity / distanceSquared;
-
-            // Lambertian shading (lambertian coef for material??)
-            double lambertianIntensity = lightIntensity * max(0, dot(lightVec, normal));
-
-            // Blinn - Phong (blinn-phong coef material??)
-            Vec3d bisector = normalize(add(lightVec, inverse(normalize(incomingRay.direction))));
-            double blinnPhongIntensity = 0.2 * lightIntensity * pow(max(0, dot(bisector, normal)), 10);
-
-            Vec3d addColor = scale(scale(lightSource.color, hitInfo.color), lambertianIntensity + blinnPhongIntensity);
-            color = add(color, addColor);
         }
 
-        // ambient light -  we need albedo, right now we set it to 1
-        color = add(color, hitInfo.color);
+        // ambient light - albedo
+        color = add(color, scale(hitInfo.color, solid.getAlbedo()));
 
         return new Vec3d(min(0.999,  color.x), min(0.999,  color.y), min(0.999,  color.z));
     }

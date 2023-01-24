@@ -10,8 +10,8 @@ public class Torus extends Solid{
     private double r;
 
 
-    public Torus(Vec3d position_, double R, double r, Vec3d color_, double reflectivity_, double roughness_) {
-        super(position_, color_ ,reflectivity_, roughness_);
+    public Torus(Vec3d position_, double R, double r, Vec3d color, double reflectivity, double roughness, double albedo, double lambertian, double blinn, int blinnExp) {
+        super(position_, color ,reflectivity, roughness, albedo, lambertian, blinn, blinnExp);
         this.R = R;
         this.r = r;
     }

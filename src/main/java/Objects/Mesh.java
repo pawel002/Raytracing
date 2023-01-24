@@ -9,10 +9,12 @@ import java.util.List;
 import java.util.Objects;
 import java.util.Scanner;
 
+import static Math.Matrix.*;
 import static java.lang.Math.max;
 import static java.lang.Math.min;
 
 import static Math.Vec3d.*;
+import Math.Matrix.*;
 import static java.lang.System.out;
 
 public class Mesh extends Solid {
@@ -23,8 +25,12 @@ public class Mesh extends Solid {
     private Vec3d boundingCenter;
     private double boundingRadius;
 
-    public Mesh(String filename, Vec3d position, Vec3d color, double reflectivity, double roughness){
-        super(position, color, reflectivity, roughness);
+    public Mesh(String filename, Vec3d position, double rotX, double rotY, double rotZ, Vec3d color, double reflectivity, double roughness, double albedo, double lambertian, double blinn, int blinnExp){
+        super(position, color, reflectivity, roughness, albedo, lambertian, blinn, blinnExp);
+
+        Matrix matX = RotXMatrix(rotX);
+        Matrix matY = RotYMatrix(rotY);
+        Matrix matZ = RotZMatrix(rotZ);
 
         // load object
         File file = new File("src/main/resources/meshes/" + filename);
@@ -40,15 +46,16 @@ public class Mesh extends Solid {
             String[] dividedData = data.split("[ /]");
             if(dividedData[0].equals("v")){
                 Vec3d vertex = new Vec3d(Double.parseDouble(dividedData[1]), Double.parseDouble(dividedData[2]), Double.parseDouble(dividedData[3]));
-                vertices.add(vertex);
+                Vec3d finalVertex = add(multiply(matZ, multiply(matY, multiply(matX, vertex))), position);
+                vertices.add(finalVertex);
             } else if (dividedData[0].equals("f")) {
                 int i1 = Integer.parseInt(dividedData[1]) - 1;
                 int i2 = Integer.parseInt(dividedData[4]) - 1;
                 int i3 = Integer.parseInt(dividedData[7]) - 1;
-                triangles.add(new Triangle(vertices.get(i1), vertices.get(i2), vertices.get(i3), color, reflectivity, roughness));
+                triangles.add(new Triangle(vertices.get(i1), vertices.get(i2), vertices.get(i3), color, reflectivity, roughness, albedo, lambertian, blinn, blinnExp));
                 if(13 == dividedData.length){
                     int i4 = Integer.parseInt(dividedData[10]) - 1;
-                    triangles.add(new Triangle(vertices.get(i1), vertices.get(i3), vertices.get(i4), color, reflectivity, roughness));
+                    triangles.add(new Triangle(vertices.get(i1), vertices.get(i3), vertices.get(i4), color, reflectivity, roughness, albedo, lambertian, blinn, blinnExp));
                 }
             }
         }

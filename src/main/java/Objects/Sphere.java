@@ -18,9 +18,9 @@ public class Sphere extends Solid{
     private final double radius;
     private BufferedImage texture;
 
-    public Sphere(Vec3d position, double radius_, Vec3d color, double reflectivity, double roughness) {
-        super(position, color, reflectivity, roughness);
-        radius = radius_;
+    public Sphere(Vec3d position, double radius_, Vec3d color, double reflectivity, double roughness, double albedo, double lambertian, double blinn, int blinnExp) {
+        super(position, color, reflectivity, roughness,  albedo,  lambertian,  blinn, blinnExp);
+        this.radius = radius_;
         texture = null;
     }
 

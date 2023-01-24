@@ -3,6 +3,10 @@ package Objects;
 import Light.Light;
 import Math.*;
 
+import javax.imageio.ImageIO;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -14,12 +18,13 @@ public class Parallelepiped extends Solid{
     public Vec3d[] vectors = new Vec3d[3];
     public Vec3d[] vertices = new Vec3d[8];
     public List<Triangle> triangles = new ArrayList<>();
+    private BufferedImage texture;
 
     Vec3d boundingCenter;
     double boundingRadius;
 
-    public Parallelepiped(Vec3d position, Vec3d v1, Vec3d v2, Vec3d v3, Vec3d color_, double reflectivity_, double roughness_){
-        super(position, color_, reflectivity_, roughness_);
+    public Parallelepiped(Vec3d position, Vec3d v1, Vec3d v2, Vec3d v3, Vec3d color, double reflectivity, double roughness, double albedo, double lambertian, double blinn, int blinnExp){
+        super(position, color, reflectivity, roughness, albedo, lambertian, blinn, blinnExp);
         vectors[0] = v1;
         vectors[1] = v2;
         vectors[2] = v3;
@@ -33,27 +38,27 @@ public class Parallelepiped extends Solid{
         vertices[6] = add(vertices[2], v3);
         vertices[7] = add(vertices[4], v3);
 
-        triangles.add(new Triangle(vertices[0], vertices[1], vertices[3], color_, reflectivity_, roughness_));
-        triangles.add(new Triangle(vertices[1], vertices[5], vertices[3], color_, reflectivity_, roughness_));
+        triangles.add(new Triangle(vertices[0], vertices[1], vertices[3], color, reflectivity, roughness, albedo, lambertian, blinn, blinnExp));
+        triangles.add(new Triangle(vertices[1], vertices[5], vertices[3], color, reflectivity, roughness, albedo, lambertian, blinn, blinnExp));
 
-        triangles.add(new Triangle(vertices[1], vertices[4], vertices[5], color_, reflectivity_, roughness_));
-        triangles.add(new Triangle(vertices[5], vertices[4], vertices[7], color_, reflectivity_, roughness_));
-
-
-        triangles.add(new Triangle(vertices[4], vertices[7], vertices[6], color_, reflectivity_, roughness_));
-        triangles.add(new Triangle(vertices[2], vertices[4], vertices[6], color_, reflectivity_, roughness_));
+        triangles.add(new Triangle(vertices[1], vertices[4], vertices[5], color, reflectivity, roughness, albedo, lambertian, blinn, blinnExp));
+        triangles.add(new Triangle(vertices[5], vertices[4], vertices[7], color, reflectivity, roughness, albedo, lambertian, blinn, blinnExp));
 
 
-        triangles.add(new Triangle(vertices[6], vertices[2], vertices[3], color_, reflectivity_, roughness_));
-        triangles.add(new Triangle(vertices[3], vertices[2], vertices[0], color_, reflectivity_, roughness_));
+        triangles.add(new Triangle(vertices[4], vertices[7], vertices[6], color, reflectivity, roughness, albedo, lambertian, blinn, blinnExp));
+        triangles.add(new Triangle(vertices[2], vertices[4], vertices[6], color, reflectivity, roughness, albedo, lambertian, blinn, blinnExp));
 
 
-        triangles.add(new Triangle(vertices[5], vertices[7], vertices[6], color_, reflectivity_, roughness_));
-        triangles.add(new Triangle(vertices[6], vertices[3], vertices[5], color_, reflectivity_, roughness_));
+        triangles.add(new Triangle(vertices[6], vertices[2], vertices[3], color, reflectivity, roughness, albedo, lambertian, blinn, blinnExp));
+        triangles.add(new Triangle(vertices[3], vertices[2], vertices[0], color, reflectivity, roughness, albedo, lambertian, blinn, blinnExp));
 
 
-        triangles.add(new Triangle(vertices[0], vertices[1], vertices[2], color_, reflectivity_, roughness_));
-        triangles.add(new Triangle(vertices[1], vertices[4], vertices[2], color_, reflectivity_, roughness_));
+        triangles.add(new Triangle(vertices[5], vertices[7], vertices[6], color, reflectivity, roughness, albedo, lambertian, blinn, blinnExp));
+        triangles.add(new Triangle(vertices[6], vertices[3], vertices[5], color, reflectivity, roughness, albedo, lambertian, blinn, blinnExp));
+
+
+        triangles.add(new Triangle(vertices[0], vertices[1], vertices[2], color, reflectivity, roughness, albedo, lambertian, blinn, blinnExp));
+        triangles.add(new Triangle(vertices[1], vertices[4], vertices[2], color, reflectivity, roughness, albedo, lambertian, blinn, blinnExp));
 
         boundingCenter = add(position, scale(add(v1, add(v2, v3)), 0.5));
         boundingRadius = length(add(v1, add(v2, v3)));
@@ -80,5 +85,25 @@ public class Parallelepiped extends Solid{
                 hitInfo = temp;
         }
         return hitInfo;
+    }
+
+    public void loadTexture(String filename){
+        triangles.get(0).loadTexture(filename, new double[][]{{0,1}, {0,0}, {1,0}});
+        triangles.get(1).loadTexture(filename, new double[][]{{0,1}, {1,0}, {1,1}});
+
+        triangles.get(2).loadTexture(filename, new double[][]{{0,1}, {0,0}, {1,0}});
+        triangles.get(3).loadTexture(filename, new double[][]{{0,1}, {1,0}, {1,1}});
+
+        triangles.get(4).loadTexture(filename, new double[][]{{0,1}, {0,0}, {1,0}});
+        triangles.get(5).loadTexture(filename, new double[][]{{0,1}, {1,0}, {1,1}});
+
+        triangles.get(6).loadTexture(filename, new double[][]{{0,1}, {0,0}, {1,0}});
+        triangles.get(7).loadTexture(filename, new double[][]{{0,1}, {1,0}, {1,1}});
+
+        triangles.get(8).loadTexture(filename, new double[][]{{0,1}, {0,0}, {1,0}});
+        triangles.get(9).loadTexture(filename, new double[][]{{0,1}, {1,0}, {1,1}});
+
+        triangles.get(10).loadTexture(filename, new double[][]{{0,1}, {0,0}, {1,0}});
+        triangles.get(11).loadTexture(filename, new double[][]{{0,1}, {1,0}, {1,1}});
     }
 }

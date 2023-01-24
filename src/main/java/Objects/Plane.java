@@ -10,9 +10,9 @@ public class Plane extends Solid{
 
     private final Vec3d normal;
 
-    public Plane(Vec3d position, Vec3d normal_, Vec3d color, double reflectivity, double roughness_) {
-        super(position, color, reflectivity, roughness_);
-        normal = normal_;
+    public Plane(Vec3d position, Vec3d normal, Vec3d color, double reflectivity, double roughness, double albedo, double lambertian, double blinn, int blinnExp) {
+        super(position, color, reflectivity, roughness, albedo, lambertian, blinn, blinnExp);
+        this.normal = normal;
     }
 
     @Override

@@ -1,6 +1,10 @@
 package Engine;
 
+import Light.DirectionalLight;
+import Light.PointLight;
+import Objects.Mesh;
 import Objects.Parallelepiped;
+import Objects.Plane;
 import Objects.Sphere;
 import Raytracer.Scene;
 import Raytracer.Skybox;
@@ -13,6 +17,8 @@ import java.io.File;
 import java.io.IOException;
 
 import Math.*;
+
+import static java.lang.Math.PI;
 
 public class SettingsMenu extends JPanel {
 
@@ -105,7 +111,10 @@ public class SettingsMenu extends JPanel {
         sceneComboBox.addItem("Cubes");
         sceneComboBox.addItem("Texture");
         sceneComboBox.addItem("Mesh");
-        sceneComboBox.addItem("name3");
+        sceneComboBox.addItem("Phong Showcase");
+        sceneComboBox.addItem("Lambertian Showcase");
+        sceneComboBox.addItem("Reflectivity Showcase");
+        sceneComboBox.addItem("Roughness Showcase");
         sceneComboBox.addItem("custom");
         scenePanel.add(sceneComboBox);
         add(scenePanel);
@@ -156,23 +165,123 @@ public class SettingsMenu extends JPanel {
                 switch (sceneComboBox.getSelectedIndex()) {
                     case 0: // Spheres
                         scene.clearScene();
-                        scene.addSolid(new Sphere(new Vec3d(0,0,0), 2, new Vec3d(0.9), 0.3, 0.2));
-                        scene.addSolid(new Sphere(new Vec3d(0,4,0), 2, new Vec3d(0.2, 0.9, 0.9), 0.3, 0));
-                        scene.addSolid(new Sphere(new Vec3d(0,8,0), 2, new Vec3d(0.9, 0.2, 0.9), 0.3, 0));
-                        scene.addSolid(new Sphere(new Vec3d(0,12,0), 2, new Vec3d(0.9,0.9,0.2), 0.3, 0));
+                        try {
+                            Thread.sleep(200);
+                        } catch (InterruptedException ex) {
+                            throw new RuntimeException(ex);
+                        }
+                        scene.clearScene();
+
+                        scene.addLight(new PointLight(new Vec3d(0, 20, 10), new Vec3d(0.8,0.8,0.6), 10));
+
+                        scene.addSolid(new Sphere(new Vec3d(0,0,0), 2, new Vec3d(0.9), 0.3, 0.2, 0.5, 0.2, 0.4, 10));
+                        scene.addSolid(new Sphere(new Vec3d(0,4,0), 2, new Vec3d(0.2, 0.9, 0.9), 0.3, 0, 0.5, 0.2, 0.4, 10));
+                        scene.addSolid(new Sphere(new Vec3d(0,8,0), 2, new Vec3d(0.9, 0.2, 0.9), 0.3, 0, 0.5, 0.2, 0.4, 10));
+                        scene.addSolid(new Sphere(new Vec3d(0,12,0), 2, new Vec3d(0.9,0.9,0.2), 0.3, 0, 0.5, 0.2, 0.4, 10));
                         break;
                     case 1: // Cubes
                         scene.clearScene();
-                        scene.addSolid(new Parallelepiped(new Vec3d(-1, -1, -1), new Vec3d(2,0,0), new Vec3d(0,2,0), new Vec3d(0,0,2), new Vec3d(0.9), 0.3, 0.2));
-                        scene.addSolid(new Parallelepiped(new Vec3d(-1, 3, -1), new Vec3d(2,0,0), new Vec3d(0,2,0), new Vec3d(0,0,2), new Vec3d(0.2, 0.9, 0.9), 0.3, 0));
-                        scene.addSolid(new Parallelepiped(new Vec3d(-1, 7, -1), new Vec3d(2,0,0), new Vec3d(0,2,0), new Vec3d(0,0,2), new Vec3d(0.9, 0.2, 0.9), 0.3, 0));
-                        scene.addSolid(new Parallelepiped(new Vec3d(-1, 11, -1), new Vec3d(2,0,0), new Vec3d(0,2,0), new Vec3d(0,0,2), new Vec3d(0.9,0.9,0.2), 0.3, 0));
+                        try {
+                            Thread.sleep(200);
+                        } catch (InterruptedException ex) {
+                            throw new RuntimeException(ex);
+                        }
+                        scene.clearScene();
+
+                        scene.addLight(new PointLight(new Vec3d(10, 0, 3), new Vec3d(0.8,0.8,0.6), 1));
+
+                        scene.addSolid(new Parallelepiped(new Vec3d(-1, -1, -1), new Vec3d(2,0,0), new Vec3d(0,2,0), new Vec3d(0,0,2), new Vec3d(0.9), 0.3, 0.2, 0.5, 0.2, 0.4, 10));
+                        scene.addSolid(new Parallelepiped(new Vec3d(-1, 3, -1), new Vec3d(2,0,0), new Vec3d(0,2,0), new Vec3d(0,0,2), new Vec3d(0.2, 0.9, 0.9), 0.3, 0, 0.5, 0.2, 0.4, 10));
+                        scene.addSolid(new Parallelepiped(new Vec3d(-1, 7, -1), new Vec3d(2,0,0), new Vec3d(0,2,0), new Vec3d(0,0,2), new Vec3d(0.9, 0.2, 0.9), 0.3, 0, 0.5, 0.2, 0.4, 10));
+                        scene.addSolid(new Parallelepiped(new Vec3d(-1, 11, -1), new Vec3d(2,0,0), new Vec3d(0,2,0), new Vec3d(0,0,2), new Vec3d(0.9,0.9,0.2), 0.3, 0, 0.5, 0.2, 0.4, 10));
                         break;
                     case 2: // Textures
                         scene.clearScene();
+                        try {
+                            Thread.sleep(200);
+                        } catch (InterruptedException ex) {
+                            throw new RuntimeException(ex);
+                        }
+                        scene.clearScene();
+
+                        scene.addLight(new PointLight(new Vec3d(0, 20, 10), new Vec3d(0.8,0.8,0.6), 5));
+                        Sphere s = new Sphere(new Vec3d(0,4,0), 2, new Vec3d(0.2, 0.9, 0.9), 0.3, 0, 0.5, 0.2, 0.8, 30);
+                        s.loadTexture("Earth.jpg");
+
+                        Parallelepiped p = new Parallelepiped(new Vec3d(-1, 7, -1), new Vec3d(2,0,0), new Vec3d(0,2,0), new Vec3d(0,0,2), new Vec3d(0.9, 0.2, 0.9), 0.3, 0, 0.5, 0.2, 0.8, 30);
+                        p.loadTexture("Crate.jpg");
+
+                        scene.addSolid(s);
+                        scene.addSolid(p);
+
                         break;
                     case 3: // Mesh
                         scene.clearScene();
+                        try {
+                            Thread.sleep(100);
+                        } catch (InterruptedException ex) {
+                            throw new RuntimeException(ex);
+                        }
+                        scene.clearScene();
+                        scene.addSolid(new Mesh("monkey.obj", new Vec3d(0), PI/2, 0, 0, new Vec3d(0.8, 0.8, 0.8), 0.4, 0, 0.2, 0.5, 0.8, 20));
+
+                        scene.addLight(new PointLight(new Vec3d(0, 20, 10), new Vec3d(0.8,0.8,0.6), 3));
+                        break;
+                    case 4: // Phong showcase
+                        scene.clearScene();
+                        try {
+                            Thread.sleep(100);
+                        } catch (InterruptedException ex) {
+                            throw new RuntimeException(ex);
+                        }
+                        scene.clearScene();
+
+                        scene.addLight(new DirectionalLight(new Vec3d(0, -1, -1), new Vec3d(0.8,0.8,0.8), 0.5));
+                        for(int i=1; i<10; i++){
+                            scene.addSolid(new Sphere(new Vec3d(0,i*2.5,0), 1, new Vec3d(0.4, 0.4, 0.4), 0, 0, 0.4, 0.1, 0.8, i*10));
+                        }
+                        break;
+                    case 5: // Lambertian showcase
+                        scene.clearScene();
+                        try {
+                            Thread.sleep(100);
+                        } catch (InterruptedException ex) {
+                            throw new RuntimeException(ex);
+                        }
+                        scene.clearScene();
+
+                        scene.addLight(new DirectionalLight(new Vec3d(0, -1, -1), new Vec3d(0.8,0.8,0.8), 0.5));
+                        for(int i=1; i<10; i++){
+                            scene.addSolid(new Sphere(new Vec3d(0,i*2.5,0), 1, new Vec3d(0.4, 0.4, 0.4), 0, 0, 0.4, 0.1*i, 0.8, 10));
+                        }
+                        break;
+                    case 6: // reflectivity showcase
+                        scene.clearScene();
+                        try {
+                            Thread.sleep(100);
+                        } catch (InterruptedException ex) {
+                            throw new RuntimeException(ex);
+                        }
+                        scene.clearScene();
+
+                        scene.addLight(new DirectionalLight(new Vec3d(0, -1, -1), new Vec3d(0.8,0.8,0.8), 0.5));
+                        for(int i=0; i<11; i++){
+                            scene.addSolid(new Sphere(new Vec3d(0,i*2.5,0), 1, new Vec3d(0.4, 0.4, 0.4), i*0.1, 0, 1, 0, 0, 10));
+                        }
+                        break;
+                    case 7: // reflectivity showcase
+                        scene.clearScene();
+                        try {
+                            Thread.sleep(100);
+                        } catch (InterruptedException ex) {
+                            throw new RuntimeException(ex);
+                        }
+                        scene.clearScene();
+
+                        scene.addLight(new DirectionalLight(new Vec3d(0, -1, -1), new Vec3d(0.8,0.8,0.8), 0.5));
+                        for(int i=0; i<10; i++){
+                            scene.addSolid(new Sphere(new Vec3d(0,i*2.5,0), 1, new Vec3d(0.4, 0.4, 0.4), 0.5, 0.05*i, 1, 0, 0, 10));
+                        }
                         break;
                     default:
                         break;

@@ -10,14 +10,37 @@ public abstract class Solid {
     protected Vec3d color;
     protected double reflectivity;
     protected double roughness;
+    protected double albedo;
+    protected double lambertian;
+    protected double blinn;
+    protected int blinnExp;
 
-    public Solid(Vec3d position_, Vec3d color_, double reflectivity_, double roughness_) {
-        position = position_;
-        color = color_;
-        reflectivity = reflectivity_;
-        roughness = roughness_;
+    public Solid(Vec3d position, Vec3d color, double reflectivity, double roughness, double albedo, double lambertian, double blinn, int blinnExp) {
+        this.position = position;
+        this.color = color;
+        this.reflectivity = reflectivity;
+        this.roughness = roughness;
+        this.albedo = albedo;
+        this.lambertian = lambertian;
+        this.blinn = blinn;
+        this.blinnExp = blinnExp;
     }
 
+    public double getAlbedo(){
+        return albedo;
+    }
+
+    public double getLambertian(){
+        return lambertian;
+    }
+
+    public double getBlinn(){
+        return blinn;
+    }
+
+    public int getBlinnExp(){
+        return blinnExp;
+    }
     public abstract HitInfo calculateIntersection(Ray ray);
 
     public Vec3d getPosition() {
