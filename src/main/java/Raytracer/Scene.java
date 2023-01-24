@@ -71,16 +71,18 @@ public class Scene {
 
             if(lightSource instanceof PointLight) {
 
-                Vec3d lightVec = normalize(subtract(((PointLight) lightSource).position, hitPoint));
+                Vec3d lightVec = subtract(((PointLight) lightSource).position, hitPoint);
+                double distanceSquared = lengthSquared(lightVec);
 
                 Ray lightRay = new Ray(hitPoint, lightVec);
                 HitInfo lightHitInfo = getHitInfo(lightRay);
 
-                if (lightHitInfo.solid != null) {
+                double distanceNextHit = lengthSquared(subtract(lightRay.at(lightHitInfo.t), hitPoint));
+
+                if (lightHitInfo.solid != null && distanceNextHit < distanceSquared) {
                     continue;
                 }
 
-                double distanceSquared = lengthSquared(lightVec);
                 double lightIntensity = lightSource.intensity / distanceSquared;
 
                 // Lambertian shading
@@ -104,8 +106,7 @@ public class Scene {
                     continue;
                 }
 
-                double distanceSquared = lengthSquared(lightVec);
-                double lightIntensity = lightSource.intensity / distanceSquared;
+                double lightIntensity = lightSource.intensity;
 
                 // Lambertian shading
                 double lambertianIntensity = solid.getLambertian() * lightIntensity * max(0, dot(lightVec, normal));
@@ -155,7 +156,7 @@ public class Scene {
     }
 
     public Scene(){
-        camera = new Camera(new Vec3d(0,0,10));
+        camera = new Camera(new Vec3d(0,0,0));
         skybox = new Skybox("Sky.jpg");
     }
 

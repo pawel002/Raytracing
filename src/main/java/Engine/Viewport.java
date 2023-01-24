@@ -91,14 +91,6 @@ public class Viewport extends JPanel {
         camera = scene.getCamera();
         skybox = scene.getSkybox();
 
-        Triangle t1 = new Triangle(new Vec3d(0,0,1), new Vec3d(0, 0, 0), new Vec3d(1,0,0), new Vec3d(0.5), 0.2, 0, 0.5, 0.5, 0.5, 10);
-        Triangle t2 = new Triangle(new Vec3d(0,0,1), new Vec3d(1, 0, 0), new Vec3d(1,0,1), new Vec3d(0.5), 0.2, 0, 0.5, 0.5, 0.5, 10);
-        t1.loadTexture("Crate.jpg", new double[][]{{0,1}, {0,0}, {1,0}});
-        t2.loadTexture("Crate.jpg", new double[][]{{0,1}, {1,0}, {1,1}});
-        scene.addSolid(t1);
-        scene.addSolid(t2);
-        scene.addLight(new PointLight(new Vec3d(0, 20, 10), new Vec3d(0.8,0.8,0.6), 1));
-
 
         BufferedImage cursorImg = new BufferedImage(16, 16, BufferedImage.TYPE_INT_ARGB);
         blankCursor = Toolkit.getDefaultToolkit().createCustomCursor(cursorImg, new Point(0,0), "blank");
@@ -195,6 +187,10 @@ public class Viewport extends JPanel {
             String str5 = "Don't move while rendering or with progressive rendering on!";
             Rectangle2D str5Bounds = fm.getStringBounds(str5, g);
             g.drawString(str5, 5,20 + (int) (str1Bounds.getHeight() + str2Bounds.getHeight() + str3Bounds.getHeight() + str4Bounds.getHeight()));
+
+            String str6 = "Switch scenes with lowest resolution to prevent bugs!";
+            Rectangle2D str6Bounds = fm.getStringBounds(str6, g);
+            g.drawString(str6, 5,20 + (int) (str1Bounds.getHeight() + str2Bounds.getHeight() + str3Bounds.getHeight() + str4Bounds.getHeight() + str5Bounds.getHeight()));
         }
 
 
