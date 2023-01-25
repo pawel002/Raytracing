@@ -7,7 +7,7 @@ Objects:
 - Parametric equations for sphere, plane and torus (ray-torus intersection solved using 4th degree polynomial solver).
 - Class that represents a triangle.
 - Class that represents a parallelepiped created from 8 traingles.
-- Reading a mesh from .obj file and computing it's bouding sphere using AABB and fiding a sphera that contains it.
+- Reading a mesh from .obj (from src/main/resources/meshes) file and computing it's bouding sphere using AABB and fiding a sphera that contains it.
 
 Surface properties:
 - Reflection coefficient.
@@ -44,6 +44,8 @@ Interface:
 - Variables describing output image such as resolution, max ray depth and number of samples per pixel (aliasing).
 - Button which can be used to clear the scene (it should clear automatically, but sometimes it does not) and a render button.
 - By pressing T, Y, R user can resepectively actiave progressive rendering, turn it off and reset the buffer.
+
+User can load a custom scene using the file called "custom.txt" placed in src/main/resources/customScene and editing values. To render this scene one can simply select "custom" in the scene selector. The "/" character makes the parser skip this line.
 
 ## Renders
 All renders are available as scenes.
