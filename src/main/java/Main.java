@@ -1,7 +1,7 @@
 import Engine.App;
 
 // TODO
-// add transparent material
+// FIX parallelopided
 
 public class Main {
 

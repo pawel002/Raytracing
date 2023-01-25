@@ -12,12 +12,14 @@ import javax.swing.filechooser.FileFilter;
 import java.awt.*;
 import java.awt.event.ItemEvent;
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.util.Scanner;
 
 import Math.*;
 
+import static Math.Vec3d.add;
 import static java.lang.Math.PI;
-import static java.lang.Math.asin;
 
 public class SettingsMenu extends JPanel {
 
@@ -415,6 +417,18 @@ public class SettingsMenu extends JPanel {
                         scene.addSolid(p13);
 
                         break;
+                    case 14: // cornell box
+                        scene.clearScene();
+                        try {
+                            Thread.sleep(100);
+                        } catch (InterruptedException ex) {
+                            throw new RuntimeException(ex);
+                        }
+                        scene.clearScene();
+
+                        sceneLoader("custom.txt", scene);
+
+                        break;
                     default:
                         break;
                 }
@@ -481,4 +495,172 @@ public class SettingsMenu extends JPanel {
         });
     }
 
+    private void sceneLoader(String filename, Scene scene) {
+
+        File file = new File("src/main/resources/customScene/" + filename);
+        Scanner myReader = null;
+        try {
+            myReader = new Scanner(file);
+        } catch (FileNotFoundException e) {
+            throw new RuntimeException(e);
+        }
+
+        String[] dividedData;
+        while (myReader.hasNextLine()) {
+            String data = myReader.nextLine();
+            dividedData = data.split(" ");
+
+            if(dividedData[0].equals("/")) continue;
+
+            // S for sphere
+            switch (dividedData[0]) {
+                case "S" -> {
+                    Sphere s = new Sphere(
+                            new Vec3d(Double.parseDouble(dividedData[1]), Double.parseDouble(dividedData[2]), Double.parseDouble(dividedData[3])),
+                            Double.parseDouble(dividedData[4]),
+                            new Vec3d(Double.parseDouble(dividedData[5]), Double.parseDouble(dividedData[6]), Double.parseDouble(dividedData[7])),
+                            Double.parseDouble(dividedData[8]),
+                            Double.parseDouble(dividedData[9]),
+                            Double.parseDouble(dividedData[10]),
+                            Double.parseDouble(dividedData[11]),
+                            Double.parseDouble(dividedData[12]),
+                            Integer.parseInt(dividedData[13])
+                    );
+                    if (dividedData.length > 14) {
+                        s.makeTransparent(Double.parseDouble(dividedData[15]));
+                    }
+                    scene.addSolid(s);
+                }
+                // T for triangle
+                case "T" -> {
+                    Triangle t = new Triangle(
+                            new Vec3d(Double.parseDouble(dividedData[1]), Double.parseDouble(dividedData[2]), Double.parseDouble(dividedData[3])),
+                            new Vec3d(Double.parseDouble(dividedData[4]), Double.parseDouble(dividedData[5]), Double.parseDouble(dividedData[6])),
+                            new Vec3d(Double.parseDouble(dividedData[7]), Double.parseDouble(dividedData[8]), Double.parseDouble(dividedData[9])),
+                            new Vec3d(Double.parseDouble(dividedData[10]), Double.parseDouble(dividedData[11]), Double.parseDouble(dividedData[12])),
+                            Double.parseDouble(dividedData[13]),
+                            Double.parseDouble(dividedData[14]),
+                            Double.parseDouble(dividedData[15]),
+                            Double.parseDouble(dividedData[16]),
+                            Double.parseDouble(dividedData[17]),
+                            Integer.parseInt(dividedData[18])
+
+                    );
+                    if (dividedData.length > 19) {
+                        t.makeTransparent(Double.parseDouble(dividedData[20]));
+                    }
+                    scene.addSolid(t);
+                }
+                // Pl for plane
+                case "Pl" -> {
+                    Plane pl = new Plane(
+                            new Vec3d(Double.parseDouble(dividedData[1]), Double.parseDouble(dividedData[2]), Double.parseDouble(dividedData[3])),
+                            new Vec3d(Double.parseDouble(dividedData[4]), Double.parseDouble(dividedData[5]), Double.parseDouble(dividedData[6])),
+                            new Vec3d(Double.parseDouble(dividedData[7]), Double.parseDouble(dividedData[8]), Double.parseDouble(dividedData[9])),
+                            Double.parseDouble(dividedData[10]),
+                            Double.parseDouble(dividedData[11]),
+                            Double.parseDouble(dividedData[12]),
+                            Double.parseDouble(dividedData[13]),
+                            Double.parseDouble(dividedData[14]),
+                            Integer.parseInt(dividedData[15])
+
+                    );
+                    if (dividedData.length > 16) {
+                        pl.makeTransparent(Double.parseDouble(dividedData[17]));
+                    }
+                    scene.addSolid(pl);
+                }
+                // Pa for parallelepiped
+                case "Pa" -> {
+                    Parallelepiped pa = new Parallelepiped(
+                            new Vec3d(Double.parseDouble(dividedData[1]), Double.parseDouble(dividedData[2]), Double.parseDouble(dividedData[3])),
+                            new Vec3d(Double.parseDouble(dividedData[4]), Double.parseDouble(dividedData[5]), Double.parseDouble(dividedData[6])),
+                            new Vec3d(Double.parseDouble(dividedData[7]), Double.parseDouble(dividedData[8]), Double.parseDouble(dividedData[9])),
+                            new Vec3d(Double.parseDouble(dividedData[10]), Double.parseDouble(dividedData[11]), Double.parseDouble(dividedData[12])),
+                            new Vec3d(Double.parseDouble(dividedData[13]), Double.parseDouble(dividedData[14]), Double.parseDouble(dividedData[15])),
+                            Double.parseDouble(dividedData[16]),
+                            Double.parseDouble(dividedData[17]),
+                            Double.parseDouble(dividedData[18]),
+                            Double.parseDouble(dividedData[19]),
+                            Double.parseDouble(dividedData[20]),
+                            Integer.parseInt(dividedData[21])
+
+                    );
+                    if (dividedData.length > 22) {
+                        pa.makeTransparent(Double.parseDouble(dividedData[23]));
+                    }
+                    scene.addSolid(pa);
+                }
+                // To for torus
+                case "To" -> {
+                    Torus to = new Torus(
+                            new Vec3d(Double.parseDouble(dividedData[1]), Double.parseDouble(dividedData[2]), Double.parseDouble(dividedData[3])),
+                            Double.parseDouble(dividedData[4]),
+                            Double.parseDouble(dividedData[5]),
+                            new Vec3d(Double.parseDouble(dividedData[6]), Double.parseDouble(dividedData[7]), Double.parseDouble(dividedData[8])),
+                            Double.parseDouble(dividedData[9]),
+                            Double.parseDouble(dividedData[10]),
+                            Double.parseDouble(dividedData[11]),
+                            Double.parseDouble(dividedData[12]),
+                            Double.parseDouble(dividedData[13]),
+                            Integer.parseInt(dividedData[14])
+                    );
+                    if (dividedData.length > 22) {
+                        to.makeTransparent(Double.parseDouble(dividedData[23]));
+                    }
+                    scene.addSolid(to);
+                }
+
+                // M for mesh
+                case "M" -> {
+                    Mesh m = new Mesh(
+                            dividedData[1],
+                            new Vec3d(Double.parseDouble(dividedData[2]), Double.parseDouble(dividedData[3]), Double.parseDouble(dividedData[4])),
+                            Double.parseDouble(dividedData[5]),
+                            Double.parseDouble(dividedData[6]),
+                            Double.parseDouble(dividedData[7]),
+                            new Vec3d(Double.parseDouble(dividedData[8]), Double.parseDouble(dividedData[9]), Double.parseDouble(dividedData[10])),
+                            Double.parseDouble(dividedData[11]),
+                            Double.parseDouble(dividedData[12]),
+                            Double.parseDouble(dividedData[13]),
+                            Double.parseDouble(dividedData[14]),
+                            Double.parseDouble(dividedData[15]),
+                            Integer.parseInt(dividedData[16])
+                    );
+                    if (dividedData.length > 17) {
+                        m.makeTransparent(Double.parseDouble(dividedData[18]));
+                    }
+                    scene.addSolid(m);
+                }
+                // Lp for point light
+                case "Lp" -> {
+                    PointLight lp = new PointLight(
+                            new Vec3d(Double.parseDouble(dividedData[1]), Double.parseDouble(dividedData[2]), Double.parseDouble(dividedData[3])),
+                            new Vec3d(Double.parseDouble(dividedData[4]), Double.parseDouble(dividedData[5]), Double.parseDouble(dividedData[6])),
+                            Double.parseDouble(dividedData[7])
+                    );
+                    scene.addLight(lp);
+                }
+                // Ld for directional light
+                case "Ld" -> {
+                    DirectionalLight ld = new DirectionalLight(
+                            new Vec3d(Double.parseDouble(dividedData[1]), Double.parseDouble(dividedData[2]), Double.parseDouble(dividedData[3])),
+                            new Vec3d(Double.parseDouble(dividedData[4]), Double.parseDouble(dividedData[5]), Double.parseDouble(dividedData[6])),
+                            Double.parseDouble(dividedData[7])
+                    );
+                    scene.addLight(ld);
+                }
+                // Ls for spherical light
+                case "Ls" -> {
+                    SphereLight ls = new SphereLight(
+                            new Vec3d(Double.parseDouble(dividedData[1]), Double.parseDouble(dividedData[2]), Double.parseDouble(dividedData[3])),
+                            Double.parseDouble(dividedData[4]),
+                            new Vec3d(Double.parseDouble(dividedData[5]), Double.parseDouble(dividedData[6]), Double.parseDouble(dividedData[7])),
+                            Double.parseDouble(dividedData[8])
+                    );
+                    scene.addLight(ls);
+                }
+            }
+        }
+    }
 }

@@ -1,6 +1,6 @@
 package Math;
 
-public final class Solvers {
+public class Solvers {
 
     // source https://github.com/fpsunflower/sunflow/blob/master/src/org/sunflow/math/Solvers.java
 
