@@ -138,7 +138,7 @@ public class Scene {
 
             } else if(lightSource instanceof SphereLight SLight){
 
-                double sphereSamples = 10;
+                double sphereSamples = 3;
 
                 for(int j=0; j<sphereSamples; j++) {
 

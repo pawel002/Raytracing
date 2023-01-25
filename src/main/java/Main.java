@@ -1,8 +1,5 @@
 import Engine.App;
 
-// TODO
-// FIX parallelopided
-
 public class Main {
 
         public static void main(String[] args) {

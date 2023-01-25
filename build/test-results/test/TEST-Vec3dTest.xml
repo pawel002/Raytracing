@@ -1,7 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="Vec3dTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2023-01-25T16:46:30" hostname="DESKTOP-B4JH4B0" time="0.015">
+<testsuite name="Vec3dTest" tests="8" skipped="0" failures="0" errors="0" timestamp="2023-01-25T16:47:44" hostname="DESKTOP-B4JH4B0" time="0.02">
   <properties/>
-  <testcase name="Vec3dNormalizeTest()" classname="Vec3dTest" time="0.015"/>
+  <testcase name="Vec3dDotTest()" classname="Vec3dTest" time="0.014"/>
+  <testcase name="Vec3dInvTest()" classname="Vec3dTest" time="0.0"/>
+  <testcase name="Vec3dSubTest()" classname="Vec3dTest" time="0.001"/>
+  <testcase name="Vec3dAddTest()" classname="Vec3dTest" time="0.0"/>
+  <testcase name="Vec3dScaleTest()" classname="Vec3dTest" time="0.0"/>
+  <testcase name="Vec3dNormalizeTest()" classname="Vec3dTest" time="0.0"/>
+  <testcase name="Vec3dLenTest()" classname="Vec3dTest" time="0.0"/>
+  <testcase name="Vec3dLenSqTest()" classname="Vec3dTest" time="0.0"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>
