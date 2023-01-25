@@ -98,7 +98,7 @@ Users can load a custom scene using the file called "custom.txt" placed in src/m
 ## Usage
 Using the program is pretty straight forward, as everything is well described and user friendly. Below you can see a screenshot of working simulation.
 ![app](https://github.com/pawel002/Raytracing/blob/master/renders/app.png)
-By pressing on the viewport the cursor will disappear and user will be able to move around in the scene. To Exit this mode you can press Esc. All the function in the settings tab work as described by label.
+By pressing on the viewport the cursor will disappear and user will be able to move around in the scene. To Exit this mode you can press Esc. All the function in the settings tab work as described by label. When needed, use clear the scene button.
 
 ## Renders
 All renders are available as scenes.
