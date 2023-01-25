@@ -38,25 +38,27 @@ public class Parallelepiped extends Solid{
         vertices[6] = add(vertices[2], v3);
         vertices[7] = add(vertices[4], v3);
 
+        // good
         triangles.add(new Triangle(vertices[0], vertices[3], vertices[1], color, reflectivity, roughness, albedo, lambertian, blinn, blinnExp));
         triangles.add(new Triangle(vertices[1], vertices[3], vertices[5], color, reflectivity, roughness, albedo, lambertian, blinn, blinnExp));
 
+        // good
         triangles.add(new Triangle(vertices[1], vertices[5], vertices[4], color, reflectivity, roughness, albedo, lambertian, blinn, blinnExp));
         triangles.add(new Triangle(vertices[5], vertices[7], vertices[4], color, reflectivity, roughness, albedo, lambertian, blinn, blinnExp));
 
-
+        // good
         triangles.add(new Triangle(vertices[4], vertices[7], vertices[6], color, reflectivity, roughness, albedo, lambertian, blinn, blinnExp));
         triangles.add(new Triangle(vertices[2], vertices[4], vertices[6], color, reflectivity, roughness, albedo, lambertian, blinn, blinnExp));
 
-
-        triangles.add(new Triangle(vertices[6], vertices[2], vertices[3], color, reflectivity, roughness, albedo, lambertian, blinn, blinnExp));
-        triangles.add(new Triangle(vertices[3], vertices[2], vertices[0], color, reflectivity, roughness, albedo, lambertian, blinn, blinnExp));
-
-
-        triangles.add(new Triangle(vertices[5], vertices[7], vertices[6], color, reflectivity, roughness, albedo, lambertian, blinn, blinnExp));
-        triangles.add(new Triangle(vertices[6], vertices[3], vertices[5], color, reflectivity, roughness, albedo, lambertian, blinn, blinnExp));
+        // good
+        triangles.add(new Triangle(vertices[6], vertices[3], vertices[2],  color, reflectivity, roughness, albedo, lambertian, blinn, blinnExp));
+        triangles.add(new Triangle(vertices[3], vertices[0], vertices[2], color, reflectivity, roughness, albedo, lambertian, blinn, blinnExp));
 
 
+        triangles.add(new Triangle(vertices[5], vertices[6], vertices[7], color, reflectivity, roughness, albedo, lambertian, blinn, blinnExp));
+        triangles.add(new Triangle(vertices[6], vertices[5], vertices[3], color, reflectivity, roughness, albedo, lambertian, blinn, blinnExp));
+
+        // good
         triangles.add(new Triangle(vertices[0], vertices[1], vertices[2], color, reflectivity, roughness, albedo, lambertian, blinn, blinnExp));
         triangles.add(new Triangle(vertices[1], vertices[4], vertices[2], color, reflectivity, roughness, albedo, lambertian, blinn, blinnExp));
 
