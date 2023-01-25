@@ -94,6 +94,10 @@ Interface:
 
 Users can load a custom scene using the file called "custom.txt" placed in src/main/resources/customScene and editing values. To render this scene, one can simply select "custom" in the scene selector. The "/" character makes the parser skip this line.
 
+
+## Usage
+Using the programm is pretty straight forward, as everything is well described and user friendly. Below you can see a screenshot of working simulation.
+
 ## Renders
 All renders are available as scenes.
 ![mesh](https://github.com/pawel002/Raytracing/blob/master/renders/mesh.png)
