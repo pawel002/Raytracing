@@ -105,6 +105,7 @@ All renders are available as scenes.
 ![mesh](https://github.com/pawel002/Raytracing/blob/master/renders/mesh.png)
 ![cornell](https://github.com/pawel002/Raytracing/blob/master/renders/cornell.png)
 ![donut](https://github.com/pawel002/Raytracing/blob/master/renders/donutspace.png)
+![cube](https://github.com/pawel002/Raytracing/blob/master/renders/cube.png)
 ![phong](https://github.com/pawel002/Raytracing/blob/master/renders/phong.png)
 ![reflect](https://github.com/pawel002/Raytracing/blob/master/renders/reflect.png)
 ![refract](https://github.com/pawel002/Raytracing/blob/master/renders/refract.png)
