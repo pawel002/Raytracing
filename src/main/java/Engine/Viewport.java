@@ -91,18 +91,6 @@ public class Viewport extends JPanel {
         camera = scene.getCamera();
         skybox = scene.getSkybox();
 
-        Parallelepiped p1 = new Parallelepiped(new Vec3d(-2, -2, -2), new Vec3d(4,0,0), new Vec3d(0,4,0), new Vec3d(0,0,4), new Vec3d(0.2, 0.2, 0.9), 0, 0, 0, 0.2, 0.8, 30);
-//        p1.makeTransparent(1.5);
-        scene.addLight(new PointLight(new Vec3d(0, 20, 0), new Vec3d(0.8,0.2,0.2), 100));
-        scene.addLight(new PointLight(new Vec3d(20, 0, 0), new Vec3d(0.2, 0.2,0.8), 100));
-        scene.addLight(new PointLight(new Vec3d(0, -20, 0), new Vec3d(0.2,0.8,0.2), 100));
-        scene.addLight(new PointLight(new Vec3d(-20, 0, 0), new Vec3d(0.8,0.8,0.2), 100));
-        scene.addLight(new PointLight(new Vec3d(0, 0, 10), new Vec3d(0.8,0.0,0), 100));
-        scene.addLight(new PointLight(new Vec3d(0, 0, -10), new Vec3d(0,0.8,0), 100));
-
-        p1.makeTransparent(1.5);
-        scene.addSolid(p1);
-
         BufferedImage cursorImg = new BufferedImage(16, 16, BufferedImage.TYPE_INT_ARGB);
         blankCursor = Toolkit.getDefaultToolkit().createCustomCursor(cursorImg, new Point(0,0), "blank");
 

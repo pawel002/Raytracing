@@ -13,7 +13,6 @@ public abstract class Light {
     }
 
     public Vec3d getIllumination(Vec3d point){
-
         return point;
     }
 }

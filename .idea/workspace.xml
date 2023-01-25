@@ -4,13 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="56813896-4263-4435-a6e3-cbef190dffa8" name="Changes" comment="update">
-      <change beforePath="$PROJECT_DIR$/.gradle/file-system.probe" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/file-system.probe" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/output.png" beforeDir="false" afterPath="$PROJECT_DIR$/output.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Engine/Viewport.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Engine/Viewport.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Objects/Parallelepiped.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Objects/Parallelepiped.java" afterDir="false" />
-    </list>
+    <list default="true" id="56813896-4263-4435-a6e3-cbef190dffa8" name="Changes" comment="update" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -525,7 +519,21 @@
       <option name="project" value="LOCAL" />
       <updated>1674613790305</updated>
     </task>
-    <option name="localTasksCounter" value="45" />
+    <task id="LOCAL-00045" summary="update">
+      <created>1674657754580</created>
+      <option name="number" value="00045" />
+      <option name="presentableId" value="LOCAL-00045" />
+      <option name="project" value="LOCAL" />
+      <updated>1674657754580</updated>
+    </task>
+    <task id="LOCAL-00046" summary="update">
+      <created>1674657758910</created>
+      <option name="number" value="00046" />
+      <option name="presentableId" value="LOCAL-00046" />
+      <option name="project" value="LOCAL" />
+      <updated>1674657758910</updated>
+    </task>
+    <option name="localTasksCounter" value="47" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

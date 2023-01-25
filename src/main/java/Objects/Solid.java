@@ -4,7 +4,7 @@ import Math.Vec3d;
 import Math.Ray;
 import Math.*;
 
-public abstract class Solid {
+public abstract class Solid implements SolidInterface{
 
     protected Vec3d position;
     protected Vec3d color;
