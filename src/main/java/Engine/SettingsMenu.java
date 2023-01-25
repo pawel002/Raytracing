@@ -180,7 +180,7 @@ public class SettingsMenu extends JPanel {
                         }
                         scene.clearScene();
 
-                        scene.addLight(new PointLight(new Vec3d(0, 20, 10), new Vec3d(0.8,0.8,0.6), 3));
+                        scene.addLight(new PointLight(new Vec3d(10, 0, 2), new Vec3d(0.8,0.8,0.6), 100));
 
                         scene.addSolid(new Sphere(new Vec3d(0,0,0), 2, new Vec3d(0.9), 0.3, 0.2, 0.5, 0.2, 0.4, 10));
                         scene.addSolid(new Sphere(new Vec3d(0,4,0), 2, new Vec3d(0.2, 0.9, 0.9), 0.3, 0, 0.5, 0.2, 0.4, 10));
@@ -196,7 +196,7 @@ public class SettingsMenu extends JPanel {
                         }
                         scene.clearScene();
 
-                        scene.addLight(new PointLight(new Vec3d(0, 20, 10), new Vec3d(0.8,0.8,0.6), 3));
+                        scene.addLight(new PointLight(new Vec3d(10, 10, 2), new Vec3d(0.8,0.8,0.6), 100));
 
                         scene.addSolid(new Parallelepiped(new Vec3d(-1, -1, -1), new Vec3d(2,0,0), new Vec3d(0,2,0), new Vec3d(0,0,2), new Vec3d(0.9), 0.3, 0.2, 0.5, 0.2, 0.4, 10));
                         scene.addSolid(new Parallelepiped(new Vec3d(-1, 3, -1), new Vec3d(2,0,0), new Vec3d(0,2,0), new Vec3d(0,0,2), new Vec3d(0.2, 0.9, 0.9), 0.3, 0, 0.5, 0.2, 0.4, 10));
@@ -223,11 +223,11 @@ public class SettingsMenu extends JPanel {
                         }
                         scene.clearScene();
 
-                        scene.addLight(new PointLight(new Vec3d(0, 20, 10), new Vec3d(0.8,0.8,0.6), 3));
-                        Sphere s = new Sphere(new Vec3d(0,4,0), 2, new Vec3d(0.2, 0.9, 0.9), 0.3, 0, 0.5, 0.2, 0.8, 30);
+                        scene.addLight(new PointLight(new Vec3d(0, 2, 10), new Vec3d(0.8,0.8,0.6), 20));
+                        Sphere s = new Sphere(new Vec3d(0,4,0), 2, new Vec3d(0.2, 0.9, 0.9), 0.3, 0, 0.5, 0.2, 2, 10);
                         s.loadTexture("Earth.jpg");
 
-                        Parallelepiped p = new Parallelepiped(new Vec3d(-1, 7, -1), new Vec3d(2,0,0), new Vec3d(0,2,0), new Vec3d(0,0,2), new Vec3d(0.9, 0.2, 0.9), 0.3, 0, 0.5, 0.2, 0.8, 30);
+                        Parallelepiped p = new Parallelepiped(new Vec3d(-1, 7, -1), new Vec3d(2,0,0), new Vec3d(0,2,0), new Vec3d(0,0,2), new Vec3d(0.9, 0.2, 0.9), 0, 0, 0.5, 0.5, 0.8, 10);
                         p.loadTexture("Crate.jpg");
 
                         scene.addSolid(s);
