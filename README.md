@@ -49,3 +49,4 @@ User can load a custom scene using the file called "custom.txt" placed in src/ma
 
 ## Renders
 All renders are available as scenes.
+![mesh](https://github.com/pawel002/Raytracing/blob/master/renders/mesh.png)
