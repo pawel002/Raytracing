@@ -1,6 +1,6 @@
 # Raytracing
 
-This repository contains a second project for the object programming course at AGH university in Kraków 22/23. 
+This repository contains my second project for the object programming course at AGH university in Kraków 22/23. 
 
 ## Description
 
