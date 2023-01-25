@@ -50,3 +50,11 @@ User can load a custom scene using the file called "custom.txt" placed in src/ma
 ## Renders
 All renders are available as scenes.
 ![mesh](https://github.com/pawel002/Raytracing/blob/master/renders/mesh.png)
+![cornell](https://github.com/pawel002/Raytracing/blob/master/renders/cornell.png)
+![donut](https://github.com/pawel002/Raytracing/blob/master/renders/donutspace.png)
+![phong](https://github.com/pawel002/Raytracing/blob/master/renders/phong.png)
+![reflect](https://github.com/pawel002/Raytracing/blob/master/renders/reflect.png)
+![refract](https://github.com/pawel002/Raytracing/blob/master/renders/refract.png)
+![rough](https://github.com/pawel002/Raytracing/blob/master/renders/rough.png)
+![textures](https://github.com/pawel002/Raytracing/blob/master/renders/textures.png)
+![balls](https://github.com/pawel002/Raytracing/blob/master/renders/balls.png)
